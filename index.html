@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" class="dark"> <head>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -10,68 +9,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ashraf Al Ahad - Performance-Driven Media Buyer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
     <style>
+        :root {
+            --primary-text: #1a202c;
+            --secondary-text: #4a5568;
+            --background-light: #f0f4f8;
+            --background-dark: #0f172a; /* Slate 900 */
+            --card-background-light: #ffffff;
+            --card-background-dark: #1e293b; /* Slate 800 */
+            --accent-color: #6366f1; /* Indigo 500 */
+            --accent-hover: #4f46e5; /* Indigo 600 */
+            --border-color-light: #e2e8f0;
+            --border-color-dark: #334155; /* Slate 700 */
+        }
+
+        /* Light Mode */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8; /* This is the main background color */
-            color: #1a202c;
-            overflow-x: hidden; 
+            background-color: var(--background-light);
+            color: var(--primary-text);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
         }
+        .text-primary { color: var(--primary-text); }
+        .text-secondary { color: var(--secondary-text); }
+        .bg-card { background-color: var(--card-background-light); }
+        .border-card { border-color: var(--border-color-light); }
+
+        /* Dark Mode */
+        html.dark body {
+            background-color: var(--background-dark);
+            color: #e2e8f0; /* Light gray text for dark mode */
+        }
+        html.dark .text-primary { color: #e2e8f0; }
+        html.dark .text-secondary { color: #a0aec0; }
+        html.dark .bg-card { background-color: var(--card-background-dark); }
+        html.dark .border-card { border-color: var(--border-color-dark); }
+        html.dark .hero-gradient { background: linear-gradient(135deg, #1e3a8a, #0c4a6e); } /* Darker gradient */
+        html.dark .sticky-header { background-color: rgba(30, 41, 59, 0.9); border-bottom: 1px solid var(--border-color-dark); }
+        html.dark .cta-button { background-color: var(--accent-color); }
+        html.dark .cta-button:hover { background-color: var(--accent-hover); }
+        html.dark .nav-link:hover { color: var(--accent-color); }
+
+
         .scroll-smooth-behavior { scroll-behavior: smooth; }
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #e2e8f0; }
+        ::-webkit-scrollbar-track { background: var(--border-color-light); }
+        html.dark ::-webkit-scrollbar-track { background: var(--border-color-dark); }
         ::-webkit-scrollbar-thumb { background-color: #94a3b8; border-radius: 4px; }
 
-        /* --- Refined Button Hover Effects --- */
-        .cta-button:hover { transform: scale(1.05); background-color: #1d4ed8; }
-        .google-ads-btn:hover { background-color: #f59e0b; color: #1e40af; transform: rotate(-1deg) scale(1.02); }
-        .meta-ads-btn:hover { background-color: #8542A8; transform: translateY(-3px); }
-        .contact-btn:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
-        .screenshot-link:hover { transform: scale(1.02); }
-        
-        /* A new utility class for consistent max-width and centering for inner content */
-        .content-container {
-            max-width: 80rem; 
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 1rem;
-            padding-right: 1rem;
+        /* Custom Accent Colors */
+        .text-accent { color: var(--accent-color); }
+        .bg-accent { background-color: var(--accent-color); }
+        .hover\:bg-accent-hover:hover { background-color: var(--accent-hover); }
+        .border-accent { border-color: var(--accent-color); }
+
+        /* Global Transition for smoother changes */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease-out, box-shadow 0.2s ease-out;
         }
 
-        /* ---------------------------------------------------- */
-        /* CORRECTED CHERRY BLOSSOM STYLES AND ANIMATION */
-        /* ---------------------------------------------------- */
-        .cherry-blossom-petal {
-            position: fixed;
-            background-color: #ffb6c1; /* Light pink */
-            border-radius: 50%;
-            opacity: 0.8; /* Increased opacity slightly */
-            pointer-events: none; 
-            z-index: 10000; /* High Z-index */
-            /* Animation properties set by JS for variety */
+        /* Specific Component Styles */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            font-weight: 700;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px; /* full rounded */
+            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3); /* Accent shadow */
+            transform: translateY(0);
+        }
+        .cta-button:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(99, 102, 241, 0.4);
         }
 
-        /* Simplified fall animation that includes a horizontal sway */
-        @keyframes fall {
-            0% {
-                transform: translate(0, -10vh) rotateZ(0deg);
-                opacity: 0;
-            }
-            50% {
-                transform: translate(10vw, 50vh) rotateZ(360deg);
-                opacity: 0.8;
-            }
-            100% {
-                transform: translate(0, 100vh) rotateZ(720deg);
-                opacity: 0;
-            }
+        .nav-link {
+            color: var(--secondary-text);
+            transition: color 0.2s ease;
         }
-        
-        /* Petal sizes - adjusted slightly */
-        .petal-small { width: 6px; height: 6px; }
-        .petal-medium { width: 10px; height: 10px; }
-        .petal-large { width: 14px; height: 14px; }
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        .experience-card {
+            border-radius: 1.5rem; /* rounded-3xl */
+            padding: 1.5rem; /* p-6 */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+        html.dark .experience-card {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill-item {
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+        html.dark .skill-item {
+             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cert-item {
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.02);
+        }
+        html.dark .cert-item {
+             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #a7bce2, #e0f2fe); /* Light gradient */
+        }
+        html.dark .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a, #0c4a6e); /* Darker gradient for dark mode */
+        }
+        .sticky-header {
+            background-color: rgba(255, 255, 255, 0.9); /* White with opacity */
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color-light);
+        }
+
+
+        /* New Hover effects */
+        .card-hover-scale:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        html.dark .card-hover-scale:hover {
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
 
     </style>
 </head>
@@ -79,46 +150,51 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NG37CHKG"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-    <header class="py-4 mb-8 sticky top-0 z-50 bg-white/80 backdrop-blur-sm shadow-md">
+    <header class="py-4 mb-8 sticky top-0 z-50 shadow-lg sticky-header">
             <div class="content-container flex flex-col md:flex-row justify-between items-center px-4 md:px-0">
-                <div class="text-2xl font-bold text-gray-800 mb-4 md:mb-0">Ashraf Al Ahad</div>
-                <nav>
+                <div class="text-2xl font-extrabold text-primary mb-4 md:mb-0 tracking-tight">Ashraf Al Ahad</div>
+                <nav class="flex items-center space-x-6">
                     <ul class="flex flex-wrap justify-center space-x-4 md:space-x-8 text-sm md:text-base font-medium">
-                        <li><a href="#about" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">About</a></li>
-                        <li><a href="#experience" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Experience</a></li>
-                        <li><a href="#skills" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Skills</a></li>
-                        <li><a href="#certifications" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Certifications</a></li>
-                        <li><a href="#contact" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Contact</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#experience" class="nav-link">Experience</a></li>
+                        <li><a href="#skills" class="nav-link">Skills</a></li>
+                        <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
                     </ul>
+                    <button id="theme-toggle" class="p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-accent">
+                        <svg class="w-6 h-6 text-secondary dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h1M3 12H2m15.325-4.275l.707-.707M3.673 19.325l.707-.707m-4.95-9.8l-.707.707m15.556-5.656l-.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </button>
                 </nav>
             </div>
         </header>
 
        <main>
-    <section id="hero" class="text-center py-10 md:py-16 mb-16 bg-blue-50 shadow-inner">
+    <section id="hero" class="text-center py-20 md:py-28 mb-16 hero-gradient shadow-xl">
         <div class="content-container">
-            <div class="max-w-3xl mx-auto px-4">
-                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-blue-800 mb-4">
-                    Media Buyer
+            <div class="max-w-4xl mx-auto px-4">
+                <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight text-white mb-6 drop-shadow-md">
+                    Performance-Driven <span class="text-yellow-300">Media Buyer</span>
                 </h1>
-                <p class="text-lg md:text-xl text-blue-700 leading-relaxed mb-8">
-                    Performance-Driven Media Buyer with 5+ years of experience crafting and scaling paid advertising campaigns for eCommerce and lead generation clients.
+                <p class="text-lg md:text-xl text-indigo-100 leading-relaxed mb-10 max-w-2xl mx-auto">
+                    With 5+ years of experience crafting and scaling paid advertising campaigns for eCommerce and lead generation clients.
                 </p>
-                <a href="#contact" class="cta-button inline-block bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform duration-300">
-                    Let's Talk
+                <a href="#contact" class="cta-button">
+                    Let's Connect
                 </a>
             </div>
         </div>
     </section>
 
     <section id="about" class="py-16 mb-16 content-container">
-        <div class="flex flex-col lg:flex-row items-center lg:items-start max-w-6xl mx-auto gap-12">
+        <div class="flex flex-col lg:flex-row items-center lg:items-start max-w-6xl mx-auto gap-12 bg-card rounded-3xl p-8 lg:p-12 shadow-2xl card-hover-scale">
             <div class="flex-shrink-0 w-full lg:w-1/3 flex justify-center">
-                <img src="profile-photo.png" alt="Ashraf Al Ahad" class="rounded-full shadow-xl" style="width:220px; height:220px; object-fit: cover;">
+                <img src="profile-photo.png" alt="Ashraf Al Ahad" class="rounded-full shadow-xl border-4 border-accent" style="width:240px; height:240px; object-fit: cover;">
             </div>
-            <div class="lg:w-2/3 text-center lg:text-left text-gray-700">
-                <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-6">About Me</h2>
-                <p class="text-lg leading-relaxed mb-4">
+            <div class="lg:w-2/3 text-center lg:text-left text-secondary">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-primary mb-8 leading-tight">About Me</h2>
+                <p class="text-lg leading-relaxed mb-6">
                     Proficient in managing six-figure budgets across Google Ads, Meta, LinkedIn, and TikTok Ads. I specialize in leveraging GA4 and Google Tag Manager for data-driven decisions that reduce customer acquisition costs and maximize ROI.
                 </p>
                 <p class="text-lg leading-relaxed">
@@ -128,222 +204,35 @@
         </div>
     </section>
 
-    <section id="experience" class="py-16 mb-16 bg-blue-100/60 shadow-xl">
-        <div class="content-container px-6 md:px-0">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-12">Work Experience & Results</h2>
-            <div class="max-w-4xl mx-auto bg-white p-6 rounded-2xl shadow-2xl mb-12">
-                <h3 class="text-2xl font-bold text-red-700 text-center">heartandsoil.co</h3>
-                <p class="text-center text-gray-500 mb-4 text-sm font-medium"> Supplement E-Commerce Brand</p>
-                <a href="Screenshot 2025-07-01 183635.png" target="_blank" class="screenshot-link block">
-                    <img src="Screenshot 2025-07-01 183635.png" alt="heartandsoil.co Shopify Sales Result" class="w-full h-auto rounded-xl border-4 border-yellow-400 shadow-lg">
-                </a>
-                <div class="mt-6 p-4 bg-yellow-50 rounded-lg text-center">
-                    <p class="text-xl font-bold text-green-800 mb-2">
-                        Generated $1.2M+ Sales in just 1 Month
-                    </p>
-                    <ul class="list-none text-gray-700 space-y-1">
-                        <li>• Google Shopping Ads Setup & Management</li>
-                        <li>• Social Media Management</li>
-                        <li>• Running Meta Ads</li>
-                        <li>• TikTok Ads</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="max-w-4xl mx-auto bg-white p-6 rounded-2xl shadow-2xl mb-12">
-                <h3 class="text-2xl font-bold text-red-700 text-center">justthrivehealth.com</h3>
-                <p class="text-center text-gray-500 mb-4 text-sm font-medium">E-Commerce</p>
-                <a href="Screenshot 2025-06-26 102523.png" target="_blank" class="screenshot-link block">
-                    <img src="Screenshot 2025-06-26 102523.png" alt="Just Thrive Health Shopify Sales Result" class="w-full h-auto rounded-xl border-4 border-yellow-400 shadow-lg">
-                </a>
-                <div class="mt-6 p-4 bg-yellow-50 rounded-lg text-center">
-                    <p class="text-xl font-bold text-green-800 mb-2">
-                        Generated $600K+ Sales in just 90 days
-                    </p>
-                    <ul class="list-none text-gray-700 space-y-1">
-                        <li>• Google Shopping Ads Setup & Management</li>
-                        <li>• Running Meta Ads & Management</li>
-                        <li>• Conversion Tracking</li>
-                    </ul>
-                </div>
-                <div class="mt-10 text-center">
-                    <p class="text-lg font-semibold text-blue-700 mb-6">
-                        See my detailed portfolio for more campaign results:
-                    </p>
-                    <div class="flex flex-col md:flex-row justify-center items-center gap-4">
-                        <a href="google-ads-portfolio.html" class="google-ads-btn inline-block bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-500 text-base w-full md:w-auto">
-                            Google Ads Portfolio
-                        </a>
-                        <a href="meta-ads-portfolio.html" class="meta-ads-btn inline-block bg-[#A352D0] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-500 text-base w-full md:w-auto">
-                            Meta Ads Portfolio
-                        </a>
+    <section id="experience" class="py-16 mb-16 bg-blue-50/60 dark:bg-slate-700 shadow-inner">
+        <div class="content-container px-4 md:px-0">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-primary text-center mb-16 leading-tight">Proven Results & Experience</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+                <div class="bg-card experience-card card-hover-scale">
+                    <h3 class="text-3xl font-bold text-red-700 text-center mb-2">heartandsoil.co</h3>
+                    <p class="text-center text-secondary mb-6 text-sm font-medium">Supplement E-Commerce Brand</p>
+                    <a href="Screenshot 2025-07-01 183635.png" target="_blank" class="block rounded-xl overflow-hidden shadow-lg border-4 border-yellow-400 transform transition-transform duration-300 hover:scale-[1.01]">
+                        <img src="Screenshot 2025-07-01 183635.png" alt="heartandsoil.co Shopify Sales Result" class="w-full h-auto">
+                    </a>
+                    <div class="mt-8 p-6 bg-yellow-50 dark:bg-yellow-900/30 rounded-lg text-center shadow-inner">
+                        <p class="text-2xl font-bold text-green-700 dark:text-green-300 mb-3">
+                            Generated $1.2M+ Sales in just 1 Month
+                        </p>
+                        <ul class="list-none text-secondary space-y-2 text-lg">
+                            <li>• Google Shopping Ads Setup & Management</li>
+                            <li>• Social Media Management</li>
+                            <li>• Running Meta Ads</li>
+                            <li>• TikTok Ads</li>
+                        </ul>
                     </div>
                 </div>
-            </div>
 
-            <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mt-16">
-                <div class="bg-white p-6 rounded-2xl shadow-lg transition-transform transform hover:scale-[1.03]">
-                    <h3 class="text-xl font-bold text-blue-700">WORLD CLASS LIGHTING</h3>
-                    <p class="text-gray-500 mb-3 text-sm font-medium">E-Commerce</p>
-                    <p class="font-semibold text-gray-800 mb-3">Generated $200K+ Sales By Spending Only $20K.</p>
-                    <ul class="text-gray-700 space-y-1 text-sm list-disc list-inside">
-                        <li>Google Shopping Ads</li>
-                        <li>Google Analytics 4 setup</li>
-                        <li>Conversion Tracking</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-lg transition-transform transform hover:scale-[1.03]">
-                    <h3 class="text-xl font-bold text-blue-700">ALL STAR PLUMBING</h3>
-                    <p class="text-gray-500 mb-3 text-sm font-medium">Service Provider</p>
-                    <p class="font-semibold text-gray-800 mb-3">Generating high-quality leads and calls.</p>
-                    <ul class="text-gray-700 space-y-1 text-sm list-disc list-inside">
-                        <li>Google PPC and Call Ads</li>
-                        <li>Campaign Optimization</li>
-                        <li>Social Media Management</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-lg transition-transform transform hover:scale-[1.03]">
-                    <h3 class="text-xl font-bold text-blue-700">NOVVI PROPERTIES</h3>
-                    <p class="text-gray-500 mb-3 text-sm font-medium">Real Estate</p>
-                    <p class="font-semibold text-gray-800 mb-3">Generated qualified leads and inquiries.</p>
-                    <ul class="text-gray-700 space-y-1 text-sm list-disc list-inside">
-                        <li>Google Search PPC Ads</li>
-                        <li>YouTube Ads</li>
-                        <li>Meta Ads</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-            
-    <section id="skills" class="py-16 mb-16 bg-white shadow-lg">
-        <div class="content-container px-6 md:px-0">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-12">Core Skills</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left max-w-6xl mx-auto">
-                <div class="bg-blue-50 p-6 rounded-2xl">
-                    <h3 class="text-xl font-bold text-blue-700 mb-4">Advertising Platforms</h3>
-                    <ul class="text-gray-700 space-y-2 list-disc list-inside">
-                        <li>Google Ads (Search, Video, Shopping)</li>
-                        <li>Meta Ads (Facebook & Instagram)</li>
-                        <li>Linkedin Ads, TikTok Ads</li>
-                    </ul>
-                </div>
-                <div class="bg-blue-50 p-6 rounded-2xl">
-                    <h3 class="text-xl font-bold text-blue-700 mb-4">Analytics & Tracking</h3>
-                    <ul class="text-gray-700 space-y-2 list-disc list-inside">
-                        <li>Google Analytics (GA4)</li>
-                        <li>Google Tag Manager (GTM)</li>
-                        <li>Conversion Tracking & Pixel Setup</li>
-                        <li>A/B Testing & Funnel Optimization</li>
-                    </ul>
-                </div>
-                <div class="bg-blue-50 p-6 rounded-2xl">
-                    <h3 class="text-xl font-bold text-blue-700 mb-4">Marketing Focus</h3>
-                    <ul class="text-gray-700 space-y-2 list-disc list-inside">
-                        <li>Lead Generation & Retargeting</li>
-                        <li>eCommerce Performance Marketing</li>
-                        <li>Budget Scaling & Reporting</li>
-                        <li>KPI Monitoring</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="certifications" class="py-16 mb-16 bg-blue-50/60 shadow-lg">
-        <div class="content-container px-6 md:px-0">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-12">Certifications</h2>
-            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded-2xl shadow-md text-center">
-                    <h3 class="text-xl font-bold text-blue-700 mb-2">Google Ads</h3>
-                    <ul class="text-gray-700 space-y-2">
-                        <li>Google Ads Search Certification</li>
-                        <li>Google Ads Shopping Certification</li>
-                        <li>YouTube Video Ads Certification</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-md text-center">
-                    <h3 class="text-xl font-bold text-blue-700 mb-2">Google Analytics</h3>
-                    <ul class="text-gray-700 space-y-2">
-                        <li>Google Analytics (GA4) Certification</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-16 bg-blue-800 text-white">
-        <div class="content-container px-6 md:px-0">
-            <div class="max-w-2xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Get in Touch</h2>
-                <p class="text-lg text-blue-200 mb-8 font-medium">Ready to scale your business? Let's discuss a strategy that drives measurable results.</p>
-                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
-                    <a href="https://linkedin.com/in/ashrafalahad" target="_blank" class="contact-btn inline-block py-3 px-6 rounded-full bg-blue-600 font-bold hover:bg-blue-500 transition-all duration-300 w-full md:w-auto">LinkedIn</a>
-                    <a href="mailto:ashrafalahad@gmail.com" class="contact-btn inline-block py-3 px-6 rounded-full bg-yellow-500 text-blue-900 font-bold hover:bg-yellow-400 transition-all duration-300 w-full md:w-auto">Email Me</a>
-                    <a href="https://wa.me/qr/AONCYJ5UJEF5D1" target="_blank" class="contact-btn inline-block py-3 px-6 rounded-full bg-green-500 font-bold hover:bg-green-400 transition-all duration-300 w-full md:w-auto">WhatsApp</a>
-                </div>
-            </div>
-        </div>
-    </section>
-        </main>
-
-        <footer class="text-center py-8 text-sm text-gray-500 mt-12 content-container">
-            <p>&copy; 2025 Ashraf Al Ahad. All Rights Reserved.</p>
-            <div class="mt-4 flex justify-center space-x-4">
-                <a href="https://linkedin.com/in/ashrafalahad" target="_blank" class="mx-2 hover:text-blue-600 transition-colors duration-300">LinkedIn</a>
-            </div>
-        </footer>
-
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Enhanced Cherry Blossom Effect JavaScript
-        const createPetal = () => {
-            const petal = document.createElement('div');
-            petal.classList.add('cherry-blossom-petal');
-            
-            // Random size selection
-            const sizeClasses = ['petal-small', 'petal-medium', 'petal-large'];
-            const randomSize = sizeClasses[Math.floor(Math.random() * sizeClasses.length)];
-            petal.classList.add(randomSize);
-
-            // Set random starting position (left)
-            petal.style.left = Math.random() * 100 + 'vw';
-            
-            // Set random animation duration (speed) and delay (when it starts)
-            const duration = Math.random() * 8 + 6; // 6 to 14 seconds
-            const delay = Math.random() * 5; // 0 to 5 seconds delay
-            
-            petal.style.animation = `fall ${duration}s linear ${delay}s infinite`;
-            
-            // Add slight horizontal translation using an additional keyframe for wind effect
-            const windAnimation = Math.random() > 0.5 ? 'wind-left' : 'wind-right';
-            const windDuration = Math.random() * 10 + 10; // 10 to 20 seconds
-            petal.style.animation += `, ${windAnimation} ${windDuration}s ease-in-out infinite alternate`;
-
-
-            document.body.appendChild(petal);
-
-            // Remove petal after it falls to prevent DOM bloat
-            // Set a generous timeout slightly longer than the maximum duration
-            setTimeout(() => {
-                petal.remove();
-            }, (duration + delay) * 1000 + 500); 
-        };
-
-        // Create the initial set of petals
-        const numPetals = 40; 
-        for (let i = 0; i < numPetals; i++) {
-            createPetal();
-        }
-
-        // Continuously add new petals every 1.5 seconds
-        setInterval(createPetal, 1500); 
-    </script>
-</body>
-</html>
+                <div class="bg-card experience-card card-hover-scale">
+                    <h3 class="text-3xl font-bold text-red-700 text-center mb-2">justthrivehealth.com</h3>
+                    <p class="text-center text-secondary mb-6 text-sm font-medium">E-Commerce</p>
+                    <a href="Screenshot 2025-06-26 102523.png" target="_blank" class="block rounded-xl overflow-hidden shadow-lg border-4 border-yellow-400 transform transition-transform duration-300 hover:scale-[1.01]">
+                        <img src="Screenshot 2025-06-26 102523.png" alt="Just Thrive Health Shopify Sales Result" class="w-full h-auto">
+                    </a>
+                    <div class="mt-8 p-6 bg-yellow-50 dark:bg-yellow-900/30 rounded-lg text-center shadow-inner">
+                        <p class="text
