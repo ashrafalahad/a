@@ -23,13 +23,14 @@
             --secondary-text: #4A4A4A; /* Used in about section */
             
             /* Clean Theme for Body/Sections */
-            --body-bg: #f0f4f8; /* From the second code block */
-            --clean-blue-header: #1e40af; /* Deep Blue for buttons/headers in sections */
+            --body-bg: #f0f4f8; /* Very light gray/blue for body */
+            --card-white: #ffffff; /* Card background */
+            --highlight-red: #DC2626; /* Strong Red for financial results */
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--body-bg); /* Use the lighter, cleaner background */
+            background-color: var(--body-bg);
             color: var(--primary-text);
             overflow-x: hidden;
             scroll-behavior: smooth;
@@ -48,7 +49,7 @@
         }
         
         /* ---------------------------------------------------- */
-        /* EXECUTIVE HEADER STYLES (Kept Original) */
+        /* EXECUTIVE HEADER/NAV STYLES */
         /* ---------------------------------------------------- */
         .sticky-header {
             background-color: rgba(255, 255, 255, 0.98);
@@ -89,12 +90,44 @@
             display: block;
         }
 
-        /* Merged Styles for Work/Skills/Contact Sections */
-        .cta-button:hover { transform: scale(1.05); background-color: #1d4ed8; }
-        .google-ads-btn:hover { background-color: #f59e0b; color: #1e40af; transform: rotate(-1deg) scale(1.02); }
-        .meta-ads-btn:hover { background-color: #8542A8; transform: translateY(-3px); }
-        .contact-btn:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+        /* ---------------------------------------------------- */
+        /* WORK EXPERIENCE & UTILITY STYLES */
+        /* ---------------------------------------------------- */
+        .case-study-card {
+             background-color: var(--card-white);
+             padding: 1.5rem;
+             border-radius: 1rem;
+             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+             transition: all 0.3s ease-out;
+             height: 100%; /* Ensure uniform height for grid */
+        }
+        .case-study-card:hover {
+             transform: translateY(-4px);
+             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        .google-ads-btn {
+            background-color: #DB4437; /* Google Red */
+            color: white;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        .google-ads-btn:hover { 
+            background-color: #c0392b; 
+            transform: scale(1.05); 
+        }
+        .meta-ads-btn {
+            background-color: #A352D0; /* Meta Purple */
+            color: white;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        .meta-ads-btn:hover { 
+            background-color: #8e44ad; 
+            transform: scale(1.05);
+        }
         .screenshot-link:hover { transform: scale(1.02); }
+        .contact-btn:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+
         .scroll-smooth-behavior { scroll-behavior: smooth; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #e2e8f0; }
@@ -147,10 +180,11 @@
 
     <section id="about" class="py-16 mb-20 content-container">
         <div class="max-w-4xl mx-auto text-primary-text">
-            <p class="text-xl font-bold text-executive-blue mb-2 uppercase tracking-wide **text-center**">EXECUTIVE SUMMARY</p>
+            <p class="text-xl font-bold text-executive-blue mb-2 uppercase tracking-wide text-center">EXECUTIVE SUMMARY</p>
             <h2 class="text-4xl md:text-5xl font-black mb-8 leading-tight text-center">I bridge Data & Revenue.</h2>
-            <p class="text-xl leading-relaxed mb-6 font-medium text-secondary-text text-center md:text-left">
-                Proficient in managing six-figure budgets across Google Ads, Meta, LinkedIn, and TikTok Ads. I specialize in leveraging GA4 and Google Tag Manager for data-driven decisions that reduce customer acquisition costs and maximize ROI. Eager to apply my expertise in budget management, audience targeting, and conversion optimization to drive growth for your agency's clients.
+            
+            <p class="text-xl leading-relaxed mb-6 font-medium text-secondary-text text-center">
+                Proficient in managing six-figure budgets across **Google Ads, Meta, LinkedIn, and TikTok Ads**. I specialize in leveraging **GA4 and Google Tag Manager** for data-driven decisions that reduce customer acquisition costs and maximize ROI. Eager to apply my expertise in budget management, audience targeting, and conversion optimization to drive growth for your agency's clients.
             </p>
             <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-8 mt-10">
                  <div class="flex items-center text-lg font-extrabold text-green-700">
@@ -167,83 +201,97 @@
 
     <section id="experience" class="py-16 mb-16 bg-blue-100/60 shadow-xl">
         <div class="content-container px-6 md:px-0">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-12">Work Experience & Results</h2>
-            <div class="max-w-4xl mx-auto bg-white p-6 rounded-2xl shadow-2xl mb-12">
-                <h3 class="text-2xl font-bold text-red-700 text-center">heartandsoil.co</h3>
-                <p class="text-center text-gray-500 mb-4 text-sm font-medium"> Supplement E-Commerce Brand</p>
-                <a href="Screenshot 2025-07-01 183635.png" target="_blank" class="screenshot-link block">
-                    <img src="Screenshot 2025-07-01 183635.png" alt="heartandsoil.co Shopify Sales Result" class="w-full h-auto rounded-xl border-4 border-yellow-400 shadow-lg transition-transform transform duration-300">
-                </a>
-                <div class="mt-6 p-4 bg-yellow-50 rounded-lg text-center">
-                    <p class="text-xl font-bold text-green-800 mb-2">
-                        Generated $1.2M+ Sales in just 1 Month
-                    </p>
-                    <ul class="list-none text-gray-700 space-y-1">
-                        <li>• Google Shopping Ads Setup & Management</li>
-                        <li>• Social Media Management</li>
-                        <li>• Running Meta Ads</li>
-                        <li>• TikTok Ads</li>
-                    </ul>
+            <h2 class="text-3xl md:text-4xl font-black text-center text-blue-800 mb-12">Verified Revenue Generation</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
+                
+                <div class="case-study-card">
+                    <h3 class="text-2xl font-black text-highlight-red text-center mb-1">heartandsoil.co</h3>
+                    <p class="text-center text-gray-500 mb-4 text-sm font-medium">Supplement E-Commerce Brand</p>
+                    
+                    <a href="Screenshot 2025-07-01 183635.png" target="_blank" class="screenshot-link block mb-6 transition-transform transform duration-300">
+                        <div class="aspect-w-16 aspect-h-9 overflow-hidden">
+                            <img src="Screenshot 2025-07-01 183635.png" alt="heartandsoil.co Shopify Sales Result" class="w-full h-auto rounded-lg border-4 border-yellow-500 shadow-xl object-cover">
+                        </div>
+                    </a>
+                    
+                    <div class="p-4 bg-yellow-50 rounded-lg text-center border-t-4 border-yellow-600">
+                        <p class="text-2xl font-extrabold text-green-800 mb-2">
+                            $1.2M+ Sales in 1 Month
+                        </p>
+                        <p class="text-sm font-medium text-gray-700 mt-3">Strategic Platforms:</p>
+                        <ul class="flex flex-wrap justify-center gap-2 text-xs font-semibold mt-2">
+                            <li class="bg-white text-executive-blue px-3 py-1 rounded-full border border-executive-blue">Google Shopping</li>
+                            <li class="bg-white text-executive-blue px-3 py-1 rounded-full border border-executive-blue">Meta Ads</li>
+                            <li class="bg-white text-executive-blue px-3 py-1 rounded-full border border-executive-blue">TikTok Ads</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <div class="max-w-4xl mx-auto bg-white p-6 rounded-2xl shadow-2xl mb-12">
-                <h3 class="text-2xl font-bold text-red-700 text-center">justthrivehealth.com</h3>
-                <p class="text-center text-gray-500 mb-4 text-sm font-medium">E-Commerce</p>
-                <a href="Screenshot 2025-06-26 102523.png" target="_blank" class="screenshot-link block">
-                    <img src="Screenshot 2025-06-26 102523.png" alt="Just Thrive Health Shopify Sales Result" class="w-full h-auto rounded-xl border-4 border-yellow-400 shadow-lg transition-transform transform duration-300">
-                </a>
-                <div class="mt-6 p-4 bg-yellow-50 rounded-lg text-center">
-                    <p class="text-xl font-bold text-green-800 mb-2">
-                        Generated $600K+ Sales in just 90 days
-                    </p>
-                    <ul class="list-none text-gray-700 space-y-1">
-                        <li>• Google Shopping Ads Setup & Management</li>
-                        <li>• Running Meta Ads & Management</li>
-                        <li>• Conversion Tracking</li>
-                    </ul>
-                </div>
-                <div class="mt-10 text-center">
-                    <p class="text-lg font-semibold text-blue-700 mb-6">
-                        See my detailed portfolio for more campaign results:
-                    </p>
-                    <div class="flex flex-col md:flex-row justify-center items-center gap-4">
-                        <a href="google-ads-portfolio.html" class="google-ads-btn inline-block bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-500 text-base w-full md:w-auto">
-                            Google Ads Portfolio
-                        </a>
-                        <a href="meta-ads-portfolio.html" class="meta-ads-btn inline-block bg-[#A352D0] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-500 text-base w-full md:w-auto">
-                            Meta Ads Portfolio
-                        </a>
+                <div class="case-study-card">
+                    <h3 class="text-2xl font-black text-highlight-red text-center mb-1">justthrivehealth.com</h3>
+                    <p class="text-center text-gray-500 mb-4 text-sm font-medium">E-Commerce</p>
+                    
+                    <a href="Screenshot 2025-06-26 102523.png" target="_blank" class="screenshot-link block mb-6 transition-transform transform duration-300">
+                        <div class="aspect-w-16 aspect-h-9 overflow-hidden">
+                            <img src="Screenshot 2025-06-26 102523.png" alt="Just Thrive Health Shopify Sales Result" class="w-full h-auto rounded-lg border-4 border-yellow-500 shadow-xl object-cover">
+                        </div>
+                    </a>
+                    
+                    <div class="p-4 bg-yellow-50 rounded-lg text-center border-t-4 border-yellow-600">
+                        <p class="text-2xl font-extrabold text-green-800 mb-2">
+                            $600K+ Sales in 90 days
+                        </p>
+                        <p class="text-sm font-medium text-gray-700 mt-3">Key Focus Areas:</p>
+                        <ul class="flex flex-wrap justify-center gap-2 text-xs font-semibold mt-2">
+                            <li class="bg-white text-executive-blue px-3 py-1 rounded-full border border-executive-blue">Shopping & Search Ads</li>
+                            <li class="bg-white text-executive-blue px-3 py-1 rounded-full border border-executive-blue">Meta Optimization</li>
+                            <li class="bg-white text-executive-blue px-3 py-1 rounded-full border border-executive-blue">Conversion Tracking</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mt-16">
-                <div class="bg-white p-6 rounded-2xl shadow-lg transition-transform transform hover:scale-[1.03]">
-                    <h3 class="text-xl font-bold text-blue-700">WORLD CLASS LIGHTING</h3>
+            <div class="mt-10 text-center max-w-4xl mx-auto">
+                <p class="text-xl font-bold text-blue-800 mb-6">
+                    See my detailed portfolio for more campaign results:
+                </p>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                    <a href="google-ads-portfolio.html" class="google-ads-btn inline-block py-3 px-8 rounded-lg shadow-xl transition-all duration-500 text-base w-full md:w-auto">
+                        Google Ads Portfolio 🚀
+                    </a>
+                    <a href="meta-ads-portfolio.html" class="meta-ads-btn inline-block py-3 px-8 rounded-lg shadow-xl transition-all duration-500 text-base w-full md:w-auto">
+                        Meta Ads Portfolio 🎯
+                    </a>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mt-16">
+                <div class="case-study-card">
+                    <h3 class="text-xl font-bold text-blue-700 mb-2">WORLD CLASS LIGHTING</h3>
                     <p class="text-gray-500 mb-3 text-sm font-medium">E-Commerce</p>
-                    <p class="font-semibold text-gray-800 mb-3">Generated $200K+ Sales By Spending Only $20K.</p>
-                    <ul class="text-gray-700 space-y-1 list-disc list-inside">
+                    <p class="font-black text-lg text-green-800 mb-3">Generated $200K+ Sales</p>
+                    <ul class="text-gray-700 space-y-1 text-sm list-disc list-inside ml-2">
                         <li>Google Shopping Ads</li>
                         <li>Google Analytics 4 setup</li>
                         <li>Conversion Tracking</li>
                     </ul>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-lg transition-transform transform hover:scale-[1.03]">
-                    <h3 class="text-xl font-bold text-blue-700">ALL STAR PLUMBING</h3>
+                <div class="case-study-card">
+                    <h3 class="text-xl font-bold text-blue-700 mb-2">ALL STAR PLUMBING</h3>
                     <p class="text-gray-500 mb-3 text-sm font-medium">Service Provider</p>
-                    <p class="font-semibold text-gray-800 mb-3">Generating high-quality leads and calls.</p>
-                    <ul class="text-gray-700 space-y-1 list-disc list-inside">
+                    <p class="font-black text-lg text-green-800 mb-3">High-Quality Leads & Calls</p>
+                    <ul class="text-gray-700 space-y-1 text-sm list-disc list-inside ml-2">
                         <li>Google PPC and Call Ads</li>
                         <li>Campaign Optimization</li>
                         <li>Social Media Management</li>
                     </ul>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-lg transition-transform transform hover:scale-[1.03]">
-                    <h3 class="text-xl font-bold text-blue-700">NOVVI PROPERTIES</h3>
+                <div class="case-study-card">
+                    <h3 class="text-xl font-bold text-blue-700 mb-2">NOVVI PROPERTIES</h3>
                     <p class="text-gray-500 mb-3 text-sm font-medium">Real Estate</p>
-                    <p class="font-semibold text-gray-800 mb-3">Generated qualified leads and inquiries.</p>
-                    <ul class="text-gray-700 space-y-1 list-disc list-inside">
+                    <p class="font-black text-lg text-green-800 mb-3">Qualified Leads & Inquiries</p>
+                    <ul class="text-gray-700 space-y-1 text-sm list-disc list-inside ml-2">
                         <li>Google Search PPC Ads</li>
                         <li>YouTube Ads</li>
                         <li>Meta Ads</li>
@@ -255,7 +303,7 @@
             
     <section id="skills" class="py-16 mb-16 bg-white shadow-lg">
         <div class="content-container px-6 md:px-0">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-12">Core Skills</h2>
+            <h2 class="text-3xl md:text-4xl font-black text-center text-blue-800 mb-12">Core Skills</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left max-w-6xl mx-auto">
                 <div class="bg-blue-50 p-6 rounded-2xl">
                     <h3 class="text-xl font-bold text-blue-700 mb-4">Advertising Platforms</h3>
@@ -290,7 +338,7 @@
 
     <section id="certifications" class="py-16 mb-16 bg-blue-50/60 shadow-lg">
         <div class="content-container px-6 md:px-0">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-12">Certifications</h2>
+            <h2 class="text-3xl md:text-4xl font-black text-center text-blue-800 mb-12">Certifications</h2>
             <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
                 <div class="bg-white p-6 rounded-2xl shadow-md text-center">
                     <h3 class="text-xl font-bold text-blue-700 mb-2">Google Ads</h3>
@@ -313,8 +361,8 @@
     <section id="contact" class="py-16 bg-blue-800 text-white">
         <div class="content-container px-6 md:px-0">
             <div class="max-w-2xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Get in Touch</h2>
-                <p class="text-lg text-blue-200 mb-8 font-medium">Ready to scale your business? Let's discuss a strategy that drives measurable results.</p>
+                <h2 class="text-3xl md:text-4xl font-black mb-6">Engage an Expert. Maximize ROI.</h2>
+                <p class="text-lg text-blue-200 mb-8 font-medium">Let's connect immediately to discuss your specific ROI goals and how I can achieve them.</p>
                 <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
                     <a href="https://linkedin.com/in/ashrafalahad" target="_blank" class="contact-btn inline-block py-3 px-6 rounded-full bg-blue-600 font-bold hover:bg-blue-500 transition-all duration-300 w-full md:w-auto">LinkedIn</a>
                     <a href="mailto:ashrafalahad@gmail.com" class="contact-btn inline-block py-3 px-6 rounded-full bg-yellow-500 text-blue-900 font-bold hover:bg-yellow-400 transition-all duration-300 w-full md:w-auto">Email Me</a>
