@@ -14,8 +14,9 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8; 
+            background-color: #f0f4f8; /* This is the main background color */
             color: #1a202c;
+            overflow-x: hidden; /* Prevent horizontal scrollbar if petals go slightly out of bounds */
         }
         .scroll-smooth-behavior { scroll-behavior: smooth; }
         ::-webkit-scrollbar { width: 8px; }
@@ -28,217 +29,266 @@
         .meta-ads-btn:hover { background-color: #8542A8; transform: translateY(-3px); }
         .contact-btn:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
         .screenshot-link:hover { transform: scale(1.02); }
+        
+        /* A new utility class for consistent max-width and centering for inner content */
+        .content-container {
+            max-width: 80rem; /* Increased to 80rem (max-w-7xl is 80rem) for full-width look */
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        /* Cherry Blossom Petal Styles and Animation */
+        .cherry-blossom-petal {
+            position: fixed;
+            background-color: #ffb6c1; /* Light pink */
+            border-radius: 50%;
+            opacity: 0.7;
+            pointer-events: none; /* Allows clicks to pass through */
+            z-index: 9999; /* Ensure petals are on top */
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translate(0, -10vh) rotateZ(0deg) rotateY(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translate(calc(var(--petal-drift) * 1px), 100vh) rotateZ(720deg) rotateY(1080deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Different sizes and animation durations for variety */
+        .petal-small { width: 8px; height: 8px; }
+        .petal-medium { width: 12px; height: 12px; }
+        .petal-large { width: 16px; height: 16px; }
+
     </style>
 </head>
 <body class="scroll-smooth-behavior">
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NG37CHKG"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <div class="max-w-7xl mx-auto p-4 md:p-8 lg:p-12 bg-white rounded-3xl my-8 shadow-2xl">
 
-        <header class="flex flex-col md:flex-row justify-between items-center py-4 mb-8 sticky top-0 z-50 bg-white/80 backdrop-blur-sm rounded-xl px-4 md:px-8 shadow-md">
-            <div class="text-2xl font-bold text-gray-800 mb-4 md:mb-0">Ashraf Al Ahad</div>
-            <nav>
-                <ul class="flex flex-wrap justify-center space-x-4 md:space-x-8 text-sm md:text-base font-medium">
-                    <li><a href="#about" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">About</a></li>
-                    <li><a href="#experience" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Experience</a></li>
-                    <li><a href="#skills" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Skills</a></li>
-                    <li><a href="#certifications" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Certifications</a></li>
-                    <li><a href="#contact" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Contact</a></li>
-                </ul>
-            </nav>
+    <header class="py-4 mb-8 sticky top-0 z-50 bg-white/80 backdrop-blur-sm shadow-md">
+            <div class="content-container flex flex-col md:flex-row justify-between items-center px-4 md:px-0">
+                <div class="text-2xl font-bold text-gray-800 mb-4 md:mb-0">Ashraf Al Ahad</div>
+                <nav>
+                    <ul class="flex flex-wrap justify-center space-x-4 md:space-x-8 text-sm md:text-base font-medium">
+                        <li><a href="#about" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">About</a></li>
+                        <li><a href="#experience" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Experience</a></li>
+                        <li><a href="#skills" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Skills</a></li>
+                        <li><a href="#certifications" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Certifications</a></li>
+                        <li><a href="#contact" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
         </header>
 
        <main>
-    <section id="hero" class="text-center py-10 md:py-16 mb-16 rounded-3xl bg-blue-50 shadow-lg">
-        <div class="max-w-3xl mx-auto px-4">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-blue-800 mb-4">
-                Media Buyer
-            </h1>
-            <p class="text-lg md:text-xl text-blue-700 leading-relaxed mb-8">
-                Performance-Driven Media Buyer with 5+ years of experience crafting and scaling paid advertising campaigns for eCommerce and lead generation clients.
-            </p>
-            <a href="#contact" class="cta-button inline-block bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform duration-300">
-                Let's Talk
-            </a>
+    <section id="hero" class="text-center py-10 md:py-16 mb-16 bg-blue-50 shadow-inner">
+        <div class="content-container">
+            <div class="max-w-3xl mx-auto px-4">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-blue-800 mb-4">
+                    Media Buyer
+                </h1>
+                <p class="text-lg md:text-xl text-blue-700 leading-relaxed mb-8">
+                    Performance-Driven Media Buyer with 5+ years of experience crafting and scaling paid advertising campaigns for eCommerce and lead generation clients.
+                </p>
+                <a href="#contact" class="cta-button inline-block bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform duration-300">
+                    Let's Talk
+                </a>
+            </div>
         </div>
-  
-            </section>
+    </section>
 
-            <section id="about" class="py-16 mb-16">
-                <div class="flex flex-col lg:flex-row items-center lg:items-start max-w-6xl mx-auto gap-12">
-                    <div class="flex-shrink-0 w-full lg:w-1/3 flex justify-center">
-                        <img src="profile-photo.png" alt="Ashraf Al Ahad" class="rounded-full shadow-xl" style="width:220px; height:220px; object-fit: cover;">
-                    </div>
-                    <div class="lg:w-2/3 text-center lg:text-left text-gray-700">
-                        <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-6">About Me</h2>
-                        <p class="text-lg leading-relaxed mb-4">
-                            Proficient in managing six-figure budgets across Google Ads, Meta, LinkedIn, and TikTok Ads. I specialize in leveraging GA4 and Google Tag Manager for data-driven decisions that reduce customer acquisition costs and maximize ROI.
-                        </p>
-                        <p class="text-lg leading-relaxed">
-                            Eager to apply my expertise in budget management, audience targeting, and conversion optimization to drive growth for your agency's clients.
-                        </p>
+    <section id="about" class="py-16 mb-16 content-container">
+        <div class="flex flex-col lg:flex-row items-center lg:items-start max-w-6xl mx-auto gap-12">
+            <div class="flex-shrink-0 w-full lg:w-1/3 flex justify-center">
+                <img src="profile-photo.png" alt="Ashraf Al Ahad" class="rounded-full shadow-xl" style="width:220px; height:220px; object-fit: cover;">
+            </div>
+            <div class="lg:w-2/3 text-center lg:text-left text-gray-700">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-6">About Me</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    Proficient in managing six-figure budgets across Google Ads, Meta, LinkedIn, and TikTok Ads. I specialize in leveraging GA4 and Google Tag Manager for data-driven decisions that reduce customer acquisition costs and maximize ROI.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Eager to apply my expertise in budget management, audience targeting, and conversion optimization to drive growth for your agency's clients.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-16 mb-16 bg-blue-100/60 shadow-xl">
+        <div class="content-container px-6 md:px-0">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-12">Work Experience & Results</h2>
+            <div class="max-w-4xl mx-auto bg-white p-6 rounded-2xl shadow-2xl mb-12">
+                <h3 class="text-2xl font-bold text-red-700 text-center">heartandsoil.co</h3>
+                <p class="text-center text-gray-500 mb-4 text-sm font-medium"> Supplement E-Commerce Brand</p>
+                <a href="Screenshot 2025-07-01 183635.png" target="_blank" class="screenshot-link block">
+                    <img src="Screenshot 2025-07-01 183635.png" alt="heartandsoil.co Shopify Sales Result" class="w-full h-auto rounded-xl border-4 border-yellow-400 shadow-lg">
+                </a>
+                <div class="mt-6 p-4 bg-yellow-50 rounded-lg text-center">
+                    <p class="text-xl font-bold text-green-800 mb-2">
+                        Generated $1.2M+ Sales in just 1 Month
+                    </p>
+                    <ul class="list-none text-gray-700 space-y-1">
+                        <li>• Google Shopping Ads Setup & Management</li>
+                        <li>• Social Media Management</li>
+                        <li>• Running Meta Ads</li>
+                        <li>• TikTok Ads</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-white p-6 rounded-2xl shadow-2xl mb-12">
+                <h3 class="text-2xl font-bold text-red-700 text-center">justthrivehealth.com</h3>
+                <p class="text-center text-gray-500 mb-4 text-sm font-medium">E-Commerce</p>
+                <a href="Screenshot 2025-06-26 102523.png" target="_blank" class="screenshot-link block">
+                    <img src="Screenshot 2025-06-26 102523.png" alt="Just Thrive Health Shopify Sales Result" class="w-full h-auto rounded-xl border-4 border-yellow-400 shadow-lg">
+                </a>
+                <div class="mt-6 p-4 bg-yellow-50 rounded-lg text-center">
+                    <p class="text-xl font-bold text-green-800 mb-2">
+                        Generated $600K+ Sales in just 90 days
+                    </p>
+                    <ul class="list-none text-gray-700 space-y-1">
+                        <li>• Google Shopping Ads Setup & Management</li>
+                        <li>• Running Meta Ads & Management</li>
+                        <li>• Conversion Tracking</li>
+                    </ul>
+                </div>
+                <div class="mt-10 text-center">
+                    <p class="text-lg font-semibold text-blue-700 mb-6">
+                        See my detailed portfolio for more campaign results:
+                    </p>
+                    <div class="flex flex-col md:flex-row justify-center items-center gap-4">
+                        <a href="google-ads-portfolio.html" class="google-ads-btn inline-block bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-500 text-base w-full md:w-auto">
+                            Google Ads Portfolio
+                        </a>
+                        <a href="meta-ads-portfolio.html" class="meta-ads-btn inline-block bg-[#A352D0] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-500 text-base w-full md:w-auto">
+                            Meta Ads Portfolio
+                        </a>
                     </div>
                 </div>
-            </section>
+            </div>
 
-            <section id="experience" class="py-16 mb-16 rounded-3xl bg-blue-100/60 shadow-xl px-6 md:px-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-12">Work Experience & Results</h2>
-  <div class="max-w-4xl mx-auto bg-white p-6 rounded-2xl shadow-2xl mb-12">
-                    <h3 class="text-2xl font-bold text-red-700 text-center">heartandsoil.co</h3>
-                    <p class="text-center text-gray-500 mb-4 text-sm font-medium"> Supplement E-Commerce Brand</p>
-                    <a href="Screenshot 2025-07-01 183635.png" target="_blank" class="screenshot-link block">
-                        <img src="Screenshot 2025-07-01 183635.png" alt="heartandsoil.co Shopify Sales Result" class="w-full h-auto rounded-xl border-4 border-yellow-400 shadow-lg">
-                    </a>
-                    <div class="mt-6 p-4 bg-yellow-50 rounded-lg text-center">
-                        <p class="text-xl font-bold text-green-800 mb-2">
-                            Generated $1.2M+ Sales in just 1 Month
-                        </p>
-                        <ul class="list-none text-gray-700 space-y-1">
-                            <li>• Google Shopping Ads Setup & Management</li>
-                            <li>• Social Media Management</li>
-                            <li>• Running Meta Ads</li>
-                            <li>• TikTok Ads</li>
-                        </ul>
-                    </div>
-
-                <div class="max-w-4xl mx-auto bg-white p-6 rounded-2xl shadow-2xl mb-12">
-                    <h3 class="text-2xl font-bold text-red-700 text-center">justthrivehealth.com</h3>
-                    <p class="text-center text-gray-500 mb-4 text-sm font-medium">E-Commerce</p>
-                    <a href="Screenshot 2025-06-26 102523.png" target="_blank" class="screenshot-link block">
-                        <img src="Screenshot 2025-06-26 102523.png" alt="Just Thrive Health Shopify Sales Result" class="w-full h-auto rounded-xl border-4 border-yellow-400 shadow-lg">
-                    </a>
-                    <div class="mt-6 p-4 bg-yellow-50 rounded-lg text-center">
-                        <p class="text-xl font-bold text-green-800 mb-2">
-                            Generated $600K+ Sales in just 90 days
-                        </p>
-                        <ul class="list-none text-gray-700 space-y-1">
-                            <li>• Google Shopping Ads Setup & Management</li>
-                            <li>• Running Meta Ads & Management</li>
-                            <li>• Conversion Tracking</li>
-                        </ul>
-                    </div>
-                    <div class="mt-10 text-center">
-                        <p class="text-lg font-semibold text-blue-700 mb-6">
-                            See my detailed portfolio for more campaign results:
-                        </p>
-                        <div class="flex flex-col md:flex-row justify-center items-center gap-4">
-                            <a href="google-ads-portfolio.html" class="google-ads-btn inline-block bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-500 text-base w-full md:w-auto">
-                                Google Ads Portfolio
-                            </a>
-                            <a href="meta-ads-portfolio.html" class="meta-ads-btn inline-block bg-[#A352D0] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-500 text-base w-full md:w-auto">
-                                Meta Ads Portfolio
-                            </a>
-                        </div>
-                    </div>
+            <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mt-16">
+                <div class="bg-white p-6 rounded-2xl shadow-lg transition-transform transform hover:scale-[1.03]">
+                    <h3 class="text-xl font-bold text-blue-700">WORLD CLASS LIGHTING</h3>
+                    <p class="text-gray-500 mb-3 text-sm font-medium">E-Commerce</p>
+                    <p class="font-semibold text-gray-800 mb-3">Generated $200K+ Sales By Spending Only $20K.</p>
+                    <ul class="text-gray-700 space-y-1 text-sm list-disc list-inside">
+                        <li>Google Shopping Ads</li>
+                        <li>Google Analytics 4 setup</li>
+                        <li>Conversion Tracking</li>
+                    </ul>
                 </div>
-
-                <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mt-16">
-                    <div class="bg-white p-6 rounded-2xl shadow-lg transition-transform transform hover:scale-[1.03]">
-                        <h3 class="text-xl font-bold text-blue-700">WORLD CLASS LIGHTING</h3>
-                        <p class="text-gray-500 mb-3 text-sm font-medium">E-Commerce</p>
-                        <p class="font-semibold text-gray-800 mb-3">Generated $200K+ Sales By Spending Only $20K.</p>
-                        <ul class="text-gray-700 space-y-1 text-sm list-disc list-inside">
-                            <li>Google Shopping Ads</li>
-                            <li>Google Analytics 4 setup</li>
-                            <li>Conversion Tracking</li>
-                        </ul>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl shadow-lg transition-transform transform hover:scale-[1.03]">
-                        <h3 class="text-xl font-bold text-blue-700">ALL STAR PLUMBING</h3>
-                        <p class="text-gray-500 mb-3 text-sm font-medium">Service Provider</p>
-                        <p class="font-semibold text-gray-800 mb-3">Generating high-quality leads and calls.</p>
-                        <ul class="text-gray-700 space-y-1 text-sm list-disc list-inside">
-                            <li>Google PPC and Call Ads</li>
-                            <li>Campaign Optimization</li>
-                            <li>Social Media Management</li>
-                        </ul>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl shadow-lg transition-transform transform hover:scale-[1.03]">
-                        <h3 class="text-xl font-bold text-blue-700">NOVVI PROPERTIES</h3>
-                        <p class="text-gray-500 mb-3 text-sm font-medium">Real Estate</p>
-                        <p class="font-semibold text-gray-800 mb-3">Generated qualified leads and inquiries.</p>
-                        <ul class="text-gray-700 space-y-1 text-sm list-disc list-inside">
-                            <li>Google Search PPC Ads</li>
-                            <li>YouTube Ads</li>
-                            <li>Meta Ads</li>
-                        </ul>
-                    </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg transition-transform transform hover:scale-[1.03]">
+                    <h3 class="text-xl font-bold text-blue-700">ALL STAR PLUMBING</h3>
+                    <p class="text-gray-500 mb-3 text-sm font-medium">Service Provider</p>
+                    <p class="font-semibold text-gray-800 mb-3">Generating high-quality leads and calls.</p>
+                    <ul class="text-gray-700 space-y-1 text-sm list-disc list-inside">
+                        <li>Google PPC and Call Ads</li>
+                        <li>Campaign Optimization</li>
+                        <li>Social Media Management</li>
+                    </ul>
                 </div>
-            </section>
+                <div class="bg-white p-6 rounded-2xl shadow-lg transition-transform transform hover:scale-[1.03]">
+                    <h3 class="text-xl font-bold text-blue-700">NOVVI PROPERTIES</h3>
+                    <p class="text-gray-500 mb-3 text-sm font-medium">Real Estate</p>
+                    <p class="font-semibold text-gray-800 mb-3">Generated qualified leads and inquiries.</p>
+                    <ul class="text-gray-700 space-y-1 text-sm list-disc list-inside">
+                        <li>Google Search PPC Ads</li>
+                        <li>YouTube Ads</li>
+                        <li>Meta Ads</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
             
-            <section id="skills" class="py-16 mb-16 rounded-3xl bg-white shadow-lg px-6 md:px-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-12">Core Skills</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left max-w-6xl mx-auto">
-                    <div class="bg-blue-50 p-6 rounded-2xl">
-                        <h3 class="text-xl font-bold text-blue-700 mb-4">Advertising Platforms</h3>
-                        <ul class="text-gray-700 space-y-2 list-disc list-inside">
-                            <li>Google Ads (Search, Video, Shopping)</li>
-                            <li>Meta Ads (Facebook & Instagram)</li>
-                            <li>Linkedin Ads, TikTok Ads</li>
-                        </ul>
-                    </div>
-                    <div class="bg-blue-50 p-6 rounded-2xl">
-                        <h3 class="text-xl font-bold text-blue-700 mb-4">Analytics & Tracking</h3>
-                        <ul class="text-gray-700 space-y-2 list-disc list-inside">
-                            <li>Google Analytics (GA4)</li>
-                            <li>Google Tag Manager (GTM)</li>
-                            <li>Conversion Tracking & Pixel Setup</li>
-                            <li>A/B Testing & Funnel Optimization</li>
-                        </ul>
-                    </div>
-                    <div class="bg-blue-50 p-6 rounded-2xl">
-                        <h3 class="text-xl font-bold text-blue-700 mb-4">Marketing Focus</h3>
-                        <ul class="text-gray-700 space-y-2 list-disc list-inside">
-                            <li>Lead Generation & Retargeting</li>
-                            <li>eCommerce Performance Marketing</li>
-                            <li>Budget Scaling & Reporting</li>
-                            <li>KPI Monitoring</li>
-                        </ul>
-                    </div>
+    <section id="skills" class="py-16 mb-16 bg-white shadow-lg">
+        <div class="content-container px-6 md:px-0">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-12">Core Skills</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left max-w-6xl mx-auto">
+                <div class="bg-blue-50 p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-blue-700 mb-4">Advertising Platforms</h3>
+                    <ul class="text-gray-700 space-y-2 list-disc list-inside">
+                        <li>Google Ads (Search, Video, Shopping)</li>
+                        <li>Meta Ads (Facebook & Instagram)</li>
+                        <li>Linkedin Ads, TikTok Ads</li>
+                    </ul>
                 </div>
-            </section>
+                <div class="bg-blue-50 p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-blue-700 mb-4">Analytics & Tracking</h3>
+                    <ul class="text-gray-700 space-y-2 list-disc list-inside">
+                        <li>Google Analytics (GA4)</li>
+                        <li>Google Tag Manager (GTM)</li>
+                        <li>Conversion Tracking & Pixel Setup</li>
+                        <li>A/B Testing & Funnel Optimization</li>
+                    </ul>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-blue-700 mb-4">Marketing Focus</h3>
+                    <ul class="text-gray-700 space-y-2 list-disc list-inside">
+                        <li>Lead Generation & Retargeting</li>
+                        <li>eCommerce Performance Marketing</li>
+                        <li>Budget Scaling & Reporting</li>
+                        <li>KPI Monitoring</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <section id="certifications" class="py-16 mb-16 rounded-3xl bg-blue-50/60 shadow-lg px-6 md:px-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-12">Certifications</h2>
-                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-                    <div class="bg-white p-6 rounded-2xl shadow-md text-center">
-                        <h3 class="text-xl font-bold text-blue-700 mb-2">Google Ads</h3>
-                        <ul class="text-gray-700 space-y-2">
-                            <li>Google Ads Search Certification</li>
-                            <li>Google Ads Shopping Certification</li>
-                            <li>YouTube Video Ads Certification</li>
-                        </ul>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl shadow-md text-center">
-                        <h3 class="text-xl font-bold text-blue-700 mb-2">Google Analytics</h3>
-                        <ul class="text-gray-700 space-y-2">
-                            <li>Google Analytics (GA4) Certification</li>
-                        </ul>
-                    </div>
+    <section id="certifications" class="py-16 mb-16 bg-blue-50/60 shadow-lg">
+        <div class="content-container px-6 md:px-0">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-12">Certifications</h2>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-2xl shadow-md text-center">
+                    <h3 class="text-xl font-bold text-blue-700 mb-2">Google Ads</h3>
+                    <ul class="text-gray-700 space-y-2">
+                        <li>Google Ads Search Certification</li>
+                        <li>Google Ads Shopping Certification</li>
+                        <li>YouTube Video Ads Certification</li>
+                    </ul>
                 </div>
-            </section>
+                <div class="bg-white p-6 rounded-2xl shadow-md text-center">
+                    <h3 class="text-xl font-bold text-blue-700 mb-2">Google Analytics</h3>
+                    <ul class="text-gray-700 space-y-2">
+                        <li>Google Analytics (GA4) Certification</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <section id="contact" class="py-16 rounded-3xl bg-blue-800 text-white px-6 md:px-12">
-                <div class="max-w-2xl mx-auto text-center">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Get in Touch</h2>
-                    <p class="text-lg text-blue-200 mb-8 font-medium">Ready to scale your business? Let's discuss a strategy that drives measurable results.</p>
-                    <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
-                        <a href="https://linkedin.com/in/ashrafalahad" target="_blank" class="contact-btn inline-block py-3 px-6 rounded-full bg-blue-600 font-bold hover:bg-blue-500 transition-all duration-300 w-full md:w-auto">LinkedIn</a>
-                        <a href="mailto:ashrafalahad@gmail.com" class="contact-btn inline-block py-3 px-6 rounded-full bg-yellow-500 text-blue-900 font-bold hover:bg-yellow-400 transition-all duration-300 w-full md:w-auto">Email Me</a>
-                        <a href="https://wa.me/qr/AONCYJ5UJEF5D1" target="_blank" class="contact-btn inline-block py-3 px-6 rounded-full bg-green-500 font-bold hover:bg-green-400 transition-all duration-300 w-full md:w-auto">WhatsApp</a>
-                    </div>
+    <section id="contact" class="py-16 bg-blue-800 text-white">
+        <div class="content-container px-6 md:px-0">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Get in Touch</h2>
+                <p class="text-lg text-blue-200 mb-8 font-medium">Ready to scale your business? Let's discuss a strategy that drives measurable results.</p>
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
+                    <a href="https://linkedin.com/in/ashrafalahad" target="_blank" class="contact-btn inline-block py-3 px-6 rounded-full bg-blue-600 font-bold hover:bg-blue-500 transition-all duration-300 w-full md:w-auto">LinkedIn</a>
+                    <a href="mailto:ashrafalahad@gmail.com" class="contact-btn inline-block py-3 px-6 rounded-full bg-yellow-500 text-blue-900 font-bold hover:bg-yellow-400 transition-all duration-300 w-full md:w-auto">Email Me</a>
+                    <a href="https://wa.me/qr/AONCYJ5UJEF5D1" target="_blank" class="contact-btn inline-block py-3 px-6 rounded-full bg-green-500 font-bold hover:bg-green-400 transition-all duration-300 w-full md:w-auto">WhatsApp</a>
                 </div>
-            </section>
+            </div>
+        </div>
+    </section>
         </main>
 
-        <footer class="text-center py-8 text-sm text-gray-500 mt-12">
+        <footer class="text-center py-8 text-sm text-gray-500 mt-12 content-container">
             <p>&copy; 2025 Ashraf Al Ahad. All Rights Reserved.</p>
             <div class="mt-4 flex justify-center space-x-4">
                 <a href="https://linkedin.com/in/ashrafalahad" target="_blank" class="mx-2 hover:text-blue-600 transition-colors duration-300">LinkedIn</a>
             </div>
         </footer>
-
-    </div>
 
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -247,10 +297,38 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
         });
+
+        // Cherry Blossom Effect JavaScript
+        const createPetal = () => {
+            const petal = document.createElement('div');
+            petal.classList.add('cherry-blossom-petal');
+            
+            // Random size
+            const size = Math.random() < 0.3 ? 'petal-small' : (Math.random() < 0.7 ? 'petal-medium' : 'petal-large');
+            petal.classList.add(size);
+
+            // Random starting position and animation duration/delay
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.animationDuration = Math.random() * 8 + 5 + 's'; // 5 to 13 seconds
+            petal.style.animationDelay = Math.random() * 5 + 's';
+            petal.style.setProperty('--petal-drift', Math.random() * 100 - 50); // -50 to 50 for horizontal drift
+
+            document.body.appendChild(petal);
+
+            // Remove petal after it falls to prevent DOM bloat
+            petal.addEventListener('animationend', () => {
+                petal.remove();
+            });
+        };
+
+        // Generate petals periodically
+        const numPetals = 30; // Number of petals to be on screen roughly at any time
+        for (let i = 0; i < numPetals; i++) {
+            createPetal();
+        }
+
+        // Continuously add new petals as old ones fall off
+        setInterval(createPetal, 1000); // Create a new petal every second
     </script>
 </body>
 </html>
-
-
-
-
