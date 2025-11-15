@@ -13,44 +13,40 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap">
     <style>
         /* ---------------------------------------------------- */
-        /* CORPORATE PRECISION STYLE VARIABLES */
+        /* COMBINED STYLE VARIABLES (Executive & Clean Blue) */
         /* ---------------------------------------------------- */
         :root {
+            /* Executive Theme for Header/Hero */
             --executive-blue: #05445E; /* Deep Professional Blue */
             --accent-silver: #A9A9A9; /* Metallic Silver/Gray Accent */
-            --accent-hover: #909090;
-            --primary-text: #171717; /* Near-Black for maximum contrast */
-            --secondary-text: #4A4A4A;
-            --background-light: #F7F7F7; /* Very light gray */
-            --card-background: #ffffff;
-            --border-color: #E0E0E0;
+            --primary-text: #171717;
+            
+            /* Clean Theme for Body/Sections */
+            --body-bg: #f0f4f8; /* From the second code block */
+            --clean-blue-header: #1e40af; /* Deep Blue for buttons/headers in sections */
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--background-light);
+            background-color: var(--body-bg); /* Use the lighter, cleaner background */
             color: var(--primary-text);
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
         
-        /* Global Transition for professional smoothness */
         * {
             transition: all 0.3s ease-out;
         }
 
-        /* Utility Classes */
         .content-container {
-            max-width: 78rem; /* Slightly smaller for density */
+            max-width: 78rem; 
             margin-left: auto;
             margin-right: auto;
             padding-left: 2rem;
             padding-right: 2rem;
         }
-
-        /* ---------------------------------------------------- */
-        /* HEADER & NAVIGATION */
-        /* ---------------------------------------------------- */
+        
+        /* Executive Header/Nav Styles */
         .sticky-header {
             background-color: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(6px);
@@ -66,29 +62,6 @@
             color: var(--executive-blue);
             border-bottom: 3px solid var(--executive-blue);
         }
-
-        /* ---------------------------------------------------- */
-        /* CALL TO ACTION (CTA) BUTTONS */
-        /* ---------------------------------------------------- */
-        .cta-button {
-            background-color: var(--executive-blue);
-            color: #FFFFFF; 
-            font-weight: 800;
-            letter-spacing: 0.08em;
-            padding: 0.85rem 3rem;
-            border-radius: 0; /* Sharp, authoritative corners */
-            box-shadow: 0 5px 15px rgba(5, 68, 94, 0.3); 
-            display: inline-flex;
-            align-items: center;
-            text-transform: uppercase;
-        }
-        .cta-button:hover {
-            background-color: #03364A; /* Slightly darker executive blue */
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(5, 68, 94, 0.4); 
-        }
-        
-        /* Secondary CTA - uses the silver/gray accent */
         .cta-secondary {
             background-color: var(--accent-silver);
             color: var(--primary-text);
@@ -99,96 +72,53 @@
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
         }
         .cta-secondary:hover {
-            background-color: var(--accent-hover);
+            background-color: #909090;
             transform: translateY(-1px);
         }
-
-
-        /* ---------------------------------------------------- */
-        /* CARD STYLES */
-        /* ---------------------------------------------------- */
-        .executive-card {
-            background-color: var(--card-background);
-            border: 1px solid var(--border-color);
-            border-radius: 0.5rem;
-            padding: 2rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-        }
-        .executive-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border-color: var(--executive-blue);
-        }
-        
-        /* Result Highlight Box - Now uses a bold red for $ values and a light blue background for context */
-        .result-highlight {
-            border: 2px solid var(--executive-blue);
-            border-radius: 0.25rem;
-            background-color: #F0F8FF; /* Light Blue/Azure */
-            box-shadow: 0 2px 8px rgba(5, 68, 94, 0.1);
-        }
-        .result-highlight p {
-            color: var(--primary-text); /* Ensure all text inside is dark */
-        }
-        .result-highlight .sales-figure {
-            color: #DC2626; /* Strong Red for financial results */
-            font-weight: 900;
-        }
-
-        /* Skill list styling */
-        .skill-list li {
-            position: relative;
-            padding-left: 1.5rem;
-            font-weight: 500;
-            color: var(--secondary-text);
-        }
-        .skill-list li::before {
-            content: '•'; 
-            color: var(--executive-blue); 
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 0;
-            font-size: 1.2rem;
-        }
-
-        /* New Hero Image Frame Style */
         .hero-image-frame {
-            border: 6px solid #FFFFFF; /* White border to stand out on dark background */
-            border-radius: 2rem; /* Very rounded corners */
+            border: 6px solid #FFFFFF;
+            border-radius: 2rem; 
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); 
             width: 100%;
             height: 400px;
             object-fit: cover;
-            object-position: top; /* Ensure face is visible */
+            object-position: top;
             display: block;
         }
 
+        /* Merged Styles for Work/Skills/Contact Sections */
+        .cta-button:hover { transform: scale(1.05); background-color: #1d4ed8; }
+        .google-ads-btn:hover { background-color: #f59e0b; color: #1e40af; transform: rotate(-1deg) scale(1.02); }
+        .meta-ads-btn:hover { background-color: #8542A8; transform: translateY(-3px); }
+        .contact-btn:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+        .screenshot-link:hover { transform: scale(1.02); }
+        .scroll-smooth-behavior { scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #e2e8f0; }
+        ::-webkit-scrollbar-thumb { background-color: #94a3b8; border-radius: 4px; }
+        
     </style>
 </head>
-<body>
+<body class="scroll-smooth-behavior">
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NG37CHKG"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <header class="py-4 sticky top-0 z-50 shadow-md sticky-header">
-            <div class="content-container flex flex-col md:flex-row justify-between items-center">
-                <div class="text-3xl font-black mb-4 md:mb-0 tracking-tight text-primary-text">
-                    ASHRAF AL AHAD 
-                    <span class="text-executive-blue text-lg font-bold block md:inline-block">| MEDIA BUYER</span>
-                <header class="py-4 mb-8 sticky top-0 z-50 bg-white/80 backdrop-blur-sm shadow-md">
-            <div class="content-container flex flex-col md:flex-row justify-between items-center px-4 md:px-0">
-                <div class="text-2xl font-bold text-gray-800 mb-4 md:mb-0">Ashraf Al Ahad</div>
-                <nav>
-                    <ul class="flex flex-wrap justify-center space-x-4 md:space-x-8 text-sm md:text-base font-medium">
-                        <li><a href="#about" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">About</a></li>
-                        <li><a href="#experience" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Experience</a></li>
-                        <li><a href="#skills" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Skills</a></li>
-                        <li><a href="#certifications" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Certifications</a></li>
-                        <li><a href="#contact" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Contact</a></li>
-                    </ul>
-                </nav>
+        <div class="content-container flex flex-col md:flex-row justify-between items-center">
+            <div class="text-3xl font-black mb-4 md:mb-0 tracking-tight text-primary-text">
+                ASHRAF AL AHAD 
+                <span class="text-executive-blue text-lg font-bold block md:inline-block">| MEDIA BUYER</span>
             </div>
-        </header>
+            <nav>
+                <ul class="flex flex-wrap justify-center space-x-6 md:space-x-10 text-base">
+                    <li><a href="#about" class="nav-link">ABOUT</a></li>
+                    <li><a href="#experience" class="nav-link">RESULTS</a></li>
+                    <li><a href="#skills" class="nav-link">EXPERTISE</a></li>
+                    <li><a href="#contact" class="cta-secondary inline-block hover:transform-none transform-none">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <main>
     <section id="hero" class="py-24 md:py-36 mb-16 shadow-2xl overflow-hidden" style="background-color: var(--executive-blue);">
@@ -202,7 +132,7 @@
                 <p class="text-xl text-gray-300 leading-relaxed mb-12 max-w-2xl">
                     5+ years of experience managing six-figure budgets across all major platforms, turning ad spend into predictable revenue for eCommerce and service clients.
                 </p>
-                <a href="#experience" class="cta-button">
+                <a href="#experience" class="cta-button" style="background-color: white; color: var(--executive-blue); padding: 0.85rem 3rem; border-radius: 0; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">
                     VIEW CASE STUDIES
                 </a>
             </div>
@@ -217,7 +147,7 @@
             <p class="text-xl font-bold text-executive-blue mb-2 uppercase tracking-wide text-center">EXECUTIVE SUMMARY</p>
             <h2 class="text-4xl md:text-5xl font-black mb-8 leading-tight text-center">I bridge Data & Revenue.</h2>
             <p class="text-xl leading-relaxed mb-6 font-medium text-secondary-text text-center md:text-left">
-                My expertise lies in the deep technical execution of paid media: leveraging advanced GA4, Google Tag Manager, and API integrations to ensure every dollar spent is traceable and optimized. I don't just run ads; I build high-converting measurement systems.
+                Proficient in managing six-figure budgets across Google Ads, Meta, LinkedIn, and TikTok Ads. I specialize in leveraging GA4 and Google Tag Manager for data-driven decisions that reduce customer acquisition costs and maximize ROI. Eager to apply my expertise in budget management, audience targeting, and conversion optimization to drive growth for your agency's clients.
             </p>
             <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-8 mt-10">
                  <div class="flex items-center text-lg font-extrabold text-green-700">
@@ -239,7 +169,7 @@
                 <h3 class="text-2xl font-bold text-red-700 text-center">heartandsoil.co</h3>
                 <p class="text-center text-gray-500 mb-4 text-sm font-medium"> Supplement E-Commerce Brand</p>
                 <a href="Screenshot 2025-07-01 183635.png" target="_blank" class="screenshot-link block">
-                    <img src="Screenshot 2025-07-01 183635.png" alt="heartandsoil.co Shopify Sales Result" class="w-full h-auto rounded-xl border-4 border-yellow-400 shadow-lg">
+                    <img src="Screenshot 2025-07-01 183635.png" alt="heartandsoil.co Shopify Sales Result" class="w-full h-auto rounded-xl border-4 border-yellow-400 shadow-lg transition-transform transform duration-300">
                 </a>
                 <div class="mt-6 p-4 bg-yellow-50 rounded-lg text-center">
                     <p class="text-xl font-bold text-green-800 mb-2">
@@ -258,7 +188,7 @@
                 <h3 class="text-2xl font-bold text-red-700 text-center">justthrivehealth.com</h3>
                 <p class="text-center text-gray-500 mb-4 text-sm font-medium">E-Commerce</p>
                 <a href="Screenshot 2025-06-26 102523.png" target="_blank" class="screenshot-link block">
-                    <img src="Screenshot 2025-06-26 102523.png" alt="Just Thrive Health Shopify Sales Result" class="w-full h-auto rounded-xl border-4 border-yellow-400 shadow-lg">
+                    <img src="Screenshot 2025-06-26 102523.png" alt="Just Thrive Health Shopify Sales Result" class="w-full h-auto rounded-xl border-4 border-yellow-400 shadow-lg transition-transform transform duration-300">
                 </a>
                 <div class="mt-6 p-4 bg-yellow-50 rounded-lg text-center">
                     <p class="text-xl font-bold text-green-800 mb-2">
@@ -330,6 +260,7 @@
                         <li>Google Ads (Search, Video, Shopping)</li>
                         <li>Meta Ads (Facebook & Instagram)</li>
                         <li>Linkedin Ads, TikTok Ads</li>
+                        <li>Programmatic & DSP Experience</li>
                     </ul>
                 </div>
                 <div class="bg-blue-50 p-6 rounded-2xl">
@@ -389,14 +320,14 @@
             </div>
         </div>
     </section>
-        </main>
+    </main>
 
-        <footer class="text-center py-8 text-sm text-gray-500 mt-12 content-container">
-            <p>&copy; 2025 Ashraf Al Ahad. All Rights Reserved.</p>
-            <div class="mt-4 flex justify-center space-x-4">
-                <a href="https://linkedin.com/in/ashrafalahad" target="_blank" class="mx-2 hover:text-blue-600 transition-colors duration-300">LinkedIn</a>
-            </div>
-        </footer>
+    <footer class="text-center py-8 text-sm text-gray-500 mt-12 content-container border-t border-gray-300">
+        <p>&copy; 2025 Ashraf Al Ahad. All Rights Reserved.</p>
+        <div class="mt-4 flex justify-center space-x-4">
+            <a href="https://linkedin.com/in/ashrafalahad" target="_blank" class="mx-2 hover:text-blue-600 transition-colors duration-300">LinkedIn</a>
+        </div>
+    </footer>
 
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -408,5 +339,3 @@
     </script>
 </body>
 </html>
-
-
