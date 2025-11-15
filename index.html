@@ -16,7 +16,7 @@
             font-family: 'Inter', sans-serif;
             background-color: #f0f4f8; /* This is the main background color */
             color: #1a202c;
-            overflow-x: hidden; /* Prevent horizontal scrollbar if petals go slightly out of bounds */
+            overflow-x: hidden; 
         }
         .scroll-smooth-behavior { scroll-behavior: smooth; }
         ::-webkit-scrollbar { width: 8px; }
@@ -32,42 +32,46 @@
         
         /* A new utility class for consistent max-width and centering for inner content */
         .content-container {
-            max-width: 80rem; /* Increased to 80rem (max-w-7xl is 80rem) for full-width look */
+            max-width: 80rem; 
             margin-left: auto;
             margin-right: auto;
             padding-left: 1rem;
             padding-right: 1rem;
         }
 
-        /* Cherry Blossom Petal Styles and Animation */
+        /* ---------------------------------------------------- */
+        /* CORRECTED CHERRY BLOSSOM STYLES AND ANIMATION */
+        /* ---------------------------------------------------- */
         .cherry-blossom-petal {
             position: fixed;
             background-color: #ffb6c1; /* Light pink */
             border-radius: 50%;
-            opacity: 0.7;
-            pointer-events: none; /* Allows clicks to pass through */
-            z-index: 9999; /* Ensure petals are on top */
-            animation: fall linear infinite;
+            opacity: 0.8; /* Increased opacity slightly */
+            pointer-events: none; 
+            z-index: 10000; /* High Z-index */
+            /* Animation properties set by JS for variety */
         }
 
+        /* Simplified fall animation that includes a horizontal sway */
         @keyframes fall {
             0% {
-                transform: translate(0, -10vh) rotateZ(0deg) rotateY(0deg);
+                transform: translate(0, -10vh) rotateZ(0deg);
                 opacity: 0;
             }
-            10% {
-                opacity: 0.7;
+            50% {
+                transform: translate(10vw, 50vh) rotateZ(360deg);
+                opacity: 0.8;
             }
             100% {
-                transform: translate(calc(var(--petal-drift) * 1px), 100vh) rotateZ(720deg) rotateY(1080deg);
+                transform: translate(0, 100vh) rotateZ(720deg);
                 opacity: 0;
             }
         }
         
-        /* Different sizes and animation durations for variety */
-        .petal-small { width: 8px; height: 8px; }
-        .petal-medium { width: 12px; height: 12px; }
-        .petal-large { width: 16px; height: 16px; }
+        /* Petal sizes - adjusted slightly */
+        .petal-small { width: 6px; height: 6px; }
+        .petal-medium { width: 10px; height: 10px; }
+        .petal-large { width: 14px; height: 14px; }
 
     </style>
 </head>
@@ -298,37 +302,48 @@
             });
         });
 
-        // Cherry Blossom Effect JavaScript
+        // Enhanced Cherry Blossom Effect JavaScript
         const createPetal = () => {
             const petal = document.createElement('div');
             petal.classList.add('cherry-blossom-petal');
             
-            // Random size
-            const size = Math.random() < 0.3 ? 'petal-small' : (Math.random() < 0.7 ? 'petal-medium' : 'petal-large');
-            petal.classList.add(size);
+            // Random size selection
+            const sizeClasses = ['petal-small', 'petal-medium', 'petal-large'];
+            const randomSize = sizeClasses[Math.floor(Math.random() * sizeClasses.length)];
+            petal.classList.add(randomSize);
 
-            // Random starting position and animation duration/delay
+            // Set random starting position (left)
             petal.style.left = Math.random() * 100 + 'vw';
-            petal.style.animationDuration = Math.random() * 8 + 5 + 's'; // 5 to 13 seconds
-            petal.style.animationDelay = Math.random() * 5 + 's';
-            petal.style.setProperty('--petal-drift', Math.random() * 100 - 50); // -50 to 50 for horizontal drift
+            
+            // Set random animation duration (speed) and delay (when it starts)
+            const duration = Math.random() * 8 + 6; // 6 to 14 seconds
+            const delay = Math.random() * 5; // 0 to 5 seconds delay
+            
+            petal.style.animation = `fall ${duration}s linear ${delay}s infinite`;
+            
+            // Add slight horizontal translation using an additional keyframe for wind effect
+            const windAnimation = Math.random() > 0.5 ? 'wind-left' : 'wind-right';
+            const windDuration = Math.random() * 10 + 10; // 10 to 20 seconds
+            petal.style.animation += `, ${windAnimation} ${windDuration}s ease-in-out infinite alternate`;
+
 
             document.body.appendChild(petal);
 
             // Remove petal after it falls to prevent DOM bloat
-            petal.addEventListener('animationend', () => {
+            // Set a generous timeout slightly longer than the maximum duration
+            setTimeout(() => {
                 petal.remove();
-            });
+            }, (duration + delay) * 1000 + 500); 
         };
 
-        // Generate petals periodically
-        const numPetals = 30; // Number of petals to be on screen roughly at any time
+        // Create the initial set of petals
+        const numPetals = 40; 
         for (let i = 0; i < numPetals; i++) {
             createPetal();
         }
 
-        // Continuously add new petals as old ones fall off
-        setInterval(createPetal, 1000); // Create a new petal every second
+        // Continuously add new petals every 1.5 seconds
+        setInterval(createPetal, 1500); 
     </script>
 </body>
 </html>
