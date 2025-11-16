@@ -38,13 +38,12 @@
             transition: all 0.3s ease-out;
         }
 
-        /* FIX 1: Enhanced Mobile Padding for Hero Section Content */
         .content-container {
             max-width: 78rem; 
             margin-left: auto;
             margin-right: auto;
-            padding-left: 1.5rem; /* Increased padding */
-            padding-right: 1.5rem; /* Increased padding */
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
         }
         
         /* ---------------------------------------------------- */
@@ -78,6 +77,8 @@
             background-color: #909090;
             transform: translateY(-1px);
         }
+        
+        /* Desktop Hero Image Styling (remains as original large rectangle) */
         .hero-image-frame {
             border: 6px solid #FFFFFF;
             border-radius: 2rem; 
@@ -88,6 +89,20 @@
             object-position: top;
             display: block;
         }
+
+        /* Mobile Hero Image Styling (smaller, circular) */
+        .hero-image-mobile {
+            width: 150px; /* Smaller width */
+            height: 150px; /* Smaller height */
+            border-radius: 50%; /* Make it circular */
+            object-fit: cover;
+            object-position: top; /* Keep the top of the photo visible */
+            border: 4px solid #FFFFFF; /* Slightly thinner border for mobile */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Slightly smaller shadow */
+            margin: 0 auto 1.5rem auto; /* Center it and add some bottom margin */
+            display: block; /* Ensure it's a block element for margin:auto to work */
+        }
+
 
         /* Merged Styles for Work/Skills/Contact Sections */
         .cta-button:hover { transform: scale(1.05); background-color: #1d4ed8; }
@@ -190,7 +205,7 @@
                 </p>
                 
                 <div class="block md:hidden mb-12">
-                    <img src="profile-photo.png" alt="Ashraf Al Ahad - Professional Profile" class="hero-image-frame" style="height: 300px;">
+                    <img src="profile-photo.png" alt="Ashraf Al Ahad - Professional Profile" class="hero-image-mobile">
                 </div>
                 
                 <a href="#experience" class="cta-button" style="background-color: white; color: var(--executive-blue); padding: 0.85rem 3rem; border-radius: 0; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">
@@ -368,15 +383,15 @@
         </div>
     </section>
 
-    <section id="contact" class="py-16 bg-blue-800 text-white">
+    <section id="contact" class="py-16 bg-sky-500 text-blue-900">
         <div class="content-container px-6 md:px-0">
             <div class="max-w-2xl mx-auto text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-6">Get in Touch</h2>
-                <p class="text-lg text-blue-200 mb-8 font-medium">Ready to scale your business? Let's discuss a strategy that drives measurable results.</p>
+                <p class="text-lg text-blue-800 mb-8 font-medium">Ready to scale your business? Let's discuss a strategy that drives measurable results.</p>
                 <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
-                    <a href="https://linkedin.com/in/ashrafalahad" target="_blank" class="contact-btn inline-block py-3 px-6 rounded-full bg-blue-600 font-bold hover:bg-blue-500 transition-all duration-300 w-full md:w-auto">LinkedIn</a>
+                    <a href="https://linkedin.com/in/ashrafalahad" target="_blank" class="contact-btn inline-block py-3 px-6 rounded-full bg-blue-700 text-white font-bold hover:bg-blue-600 transition-all duration-300 w-full md:w-auto">LinkedIn</a>
                     <a href="mailto:ashrafalahad@gmail.com" class="contact-btn inline-block py-3 px-6 rounded-full bg-yellow-500 text-blue-900 font-bold hover:bg-yellow-400 transition-all duration-300 w-full md:w-auto">Email Me</a>
-                    <a href="https://wa.me/qr/AONCYJ5UJEF5D1" target="_blank" class="contact-btn inline-block py-3 px-6 rounded-full bg-green-500 font-bold hover:bg-green-400 transition-all duration-300 w-full md:w-auto">WhatsApp</a>
+                    <a href="https://wa.me/qr/AONCYJ5UJEF5D1" target="_blank" class="contact-btn inline-block py-3 px-6 rounded-full bg-green-500 text-white font-bold hover:bg-green-400 transition-all duration-300 w-full md:w-auto">WhatsApp</a>
                 </div>
             </div>
         </div>
