@@ -498,32 +498,30 @@
         });
 
         /**
-         * Triggers the resume download and displays the success modal.
+         * Triggers the resume download and displays the success modal instantly.
          * @param {Event} event The click event.
          */
         function triggerDownloadAndShowSuccess(event) {
-            // 1. Prevent default navigation (to stop instant redirect/download)
+            // Prevent the default browser behavior initially so we can control the flow.
             event.preventDefault();
 
             const successModal = document.getElementById('downloadSuccessModal');
+            const targetLink = event.currentTarget;
             
-            // 2. Show the success modal
+            // 1. Show the success modal immediately
             successModal.classList.remove('hidden');
 
-            // 3. Start the actual download after a short delay (for better UX)
-            setTimeout(() => {
-                // Manually create a link element to trigger the download
-                const downloadLink = document.createElement('a');
-                downloadLink.href = event.currentTarget.href; // Get the PDF path from the current button's href
-                downloadLink.download = 'Resume of Ashraf Al Ahad.pdf';
-                
-                // Append and click the link to trigger the download prompt
-                document.body.appendChild(downloadLink);
-                downloadLink.click();
-                document.body.removeChild(downloadLink);
-            }, 100); 
+            // 2. Trigger the actual download instantly using a temporary link element
+            const downloadLink = document.createElement('a');
+            downloadLink.href = targetLink.href; // Get the PDF path from the current button's href
+            downloadLink.download = 'Ashraf Al Ahad Resume.pdf'; // Set the desired downloaded filename
+            
+            // Trigger the download
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
 
-            // 4. Hide the modal after 3 seconds
+            // 3. Hide the modal after 3 seconds
             setTimeout(() => {
                 successModal.classList.add('hidden');
             }, 3000); 
