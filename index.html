@@ -170,6 +170,21 @@
             cursor: pointer;
         }
         
+        /* DOWNLOAD SUCCESS MODAL STYLES */
+        #downloadSuccessModal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10000;
+            animation: fadeIn 0.3s ease-out;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translate(-50%, -60%);}
+            to {opacity: 1; transform: translate(-50%, -50%);}
+        }
     </style>
 </head>
 <body class="scroll-smooth-behavior">
@@ -220,7 +235,9 @@
                         VIEW CASE STUDIES
                     </a>
                     <!-- Secondary CTA: Yellow background, White text, Rounded-Lg (Matching shape) -->
-                    <a href="Resume of Ashraf Al Ahad.pdf" download class="inline-block text-center bg-yellow-500 text-white py-3 px-6 rounded-lg font-extrabold tracking-wider uppercase hover:scale-[1.05] hover:bg-yellow-400 transition-all duration-300">
+                    <a href="Resume of Ashraf Al Ahad.pdf" 
+                       class="inline-block text-center bg-yellow-500 text-white py-3 px-6 rounded-lg font-extrabold tracking-wider uppercase hover:scale-[1.05] hover:bg-yellow-400 transition-all duration-300"
+                       onclick="triggerDownloadAndShowSuccess(event)">
                         DOWNLOAD RESUME
                     </a>
                 </div>
@@ -430,6 +447,19 @@
         <img class="modal-content" id="img01">
     </div>
     
+    <!-- DOWNLOAD SUCCESS MODAL -->
+    <div id="downloadSuccessModal" class="fixed hidden bg-white p-6 md:p-8 rounded-xl text-center z-50 transition-opacity duration-300">
+        <div class="text-green-500 mb-4">
+            <!-- Checkmark/Tick Icon SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        </div>
+        <p class="text-xl font-bold text-gray-800">Success!</p>
+        <p class="text-gray-600">Ashraf Al Ahad CV is successfully downloaded.</p>
+    </div>
+
+    
     <!-- Scripts -->
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -466,6 +496,38 @@
                 closeModal();
             }
         });
+
+        /**
+         * Triggers the resume download and displays the success modal.
+         * @param {Event} event The click event.
+         */
+        function triggerDownloadAndShowSuccess(event) {
+            // 1. Prevent default navigation (to stop instant redirect/download)
+            event.preventDefault();
+
+            const successModal = document.getElementById('downloadSuccessModal');
+            
+            // 2. Show the success modal
+            successModal.classList.remove('hidden');
+
+            // 3. Start the actual download after a short delay (for better UX)
+            setTimeout(() => {
+                // Manually create a link element to trigger the download
+                const downloadLink = document.createElement('a');
+                downloadLink.href = event.currentTarget.href; // Get the PDF path from the current button's href
+                downloadLink.download = 'Resume of Ashraf Al Ahad.pdf';
+                
+                // Append and click the link to trigger the download prompt
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+            }, 100); 
+
+            // 4. Hide the modal after 3 seconds
+            setTimeout(() => {
+                successModal.classList.add('hidden');
+            }, 3000); 
+        }
     </script>
 </body>
 </html>
