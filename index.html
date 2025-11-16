@@ -1,59 +1,435 @@
-<style>
-    /* ... (Existing styles remain the same) ... */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NG37CHKG');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashraf Al Ahad - Performance-Driven Media Buyer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap">
+    <style>
+        /* ---------------------------------------------------- */
+        /* COMBINED STYLE VARIABLES (Executive & Clean Blue) */
+        /* ---------------------------------------------------- */
+        :root {
+            /* Executive Theme for Header/Hero */
+            --executive-blue: #05445E; /* Deep Professional Blue */
+            --accent-silver: #A9A9A9; /* Metallic Silver/Gray Accent */
+            --primary-text: #171717;
+            --secondary-text: #4A4A4A; /* Used in about section */
+            
+            /* Clean Theme for Body/Sections */
+            --body-bg: #f0f4f8; /* From the second code block */
+            --clean-blue-header: #1e40af; /* Deep Blue for buttons/headers in sections */
+        }
 
-    /* ---------------------------------------------------- */
-    /* EXECUTIVE HEADER STYLES (Kept Original) */
-    /* ---------------------------------------------------- */
-    /* ... (Existing styles remain the same) ... */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--body-bg);
+            color: var(--primary-text);
+            scroll-behavior: smooth;
+        }
+        
+        * {
+            transition: all 0.3s ease-out;
+        }
 
-    /* FIX 1: Enhanced Mobile Padding for Hero Section Content */
-    .content-container {
-        max-width: 78rem; 
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 1.5rem; /* Increased padding */
-        padding-right: 1.5rem; /* Increased padding */
-    }
+        /* FIX 1: Enhanced Mobile Padding for Hero Section Content */
+        .content-container {
+            max-width: 78rem; 
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1.5rem; /* Increased padding */
+            padding-right: 1.5rem; /* Increased padding */
+        }
+        
+        /* ---------------------------------------------------- */
+        /* EXECUTIVE HEADER STYLES (Kept Original) */
+        /* ---------------------------------------------------- */
+        .sticky-header {
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(6px);
+            border-bottom: 3px solid var(--executive-blue); 
+        }
+        .nav-link {
+            color: var(--primary-text);
+            font-weight: 700;
+            padding: 0.25rem 0;
+            letter-spacing: 0.05em;
+        }
+        .nav-link:hover {
+            color: var(--executive-blue);
+            border-bottom: 3px solid var(--executive-blue);
+        }
+        .cta-secondary {
+            background-color: var(--accent-silver);
+            color: var(--primary-text);
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            padding: 0.6rem 2rem;
+            border-radius: 0;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+        .cta-secondary:hover {
+            background-color: #909090;
+            transform: translateY(-1px);
+        }
+        .hero-image-frame {
+            border: 6px solid #FFFFFF;
+            border-radius: 2rem; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); 
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+        }
 
-    /* FIX 2: Hero Image for Desktop */
-    .hero-image-frame {
-        border: 6px solid #FFFFFF;
-        border-radius: 2rem; 
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); 
-        width: 100%;
-        height: 400px;
-        object-fit: cover;
-        object-position: top;
-        display: block;
-    }
+        /* Merged Styles for Work/Skills/Contact Sections */
+        .cta-button:hover { transform: scale(1.05); background-color: #1d4ed8; }
+        .google-ads-btn:hover { background-color: #f59e0b; color: #1e40af; transform: rotate(-1deg) scale(1.02); }
+        .meta-ads-btn:hover { background-color: #8542A8; transform: translateY(-3px); }
+        .contact-btn:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+        .screenshot-link:hover { transform: scale(1.02); }
+        .scroll-smooth-behavior { scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #e2e8f0; }
+        ::-webkit-scrollbar-thumb { background-color: #94a3b8; border-radius: 4px; }
+        
+        /* ---------------------------------------------------- */
+        /* LIGHTBOX/MODAL STYLES */
+        /* ---------------------------------------------------- */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            overflow: auto; 
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: center;
+        }
 
-    /* FIX 3: Adjusted Lightbox/Modal Styles for Full Screen Zoom */
-    .modal {
-        display: none; 
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.95); /* Slightly darker background */
-        overflow: auto; 
-        padding: 10px; /* Padding for mobile screens */
-        box-sizing: border-box;
-        text-align: center; /* Center the image */
-    }
+        .modal-content {
+            margin: 10% auto;
+            display: block;
+            width: auto;
+            max-width: 95%;
+            max-height: 80vh;
+            object-fit: contain;
+            position: relative;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
 
-    .modal-content {
-        margin: 10% auto; /* Move image up slightly */
-        display: block;
-        width: auto;
-        max-width: 95%; /* Maximum width for image */
-        max-height: 80vh; /* Maximum height to fit the screen vertically */
-        object-fit: contain; /* Ensures the whole image is visible without cropping */
-        position: relative;
-        animation-name: zoom;
-        animation-duration: 0.6s;
-    }
+        @keyframes zoom {
+            from {transform: scale(0); opacity: 0;}
+            to {transform: scale(1) translateY(-50%); opacity: 1;}
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body class="scroll-smooth-behavior">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NG37CHKG"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="py-4 mb-8 sticky top-0 z-50 bg-white/80 backdrop-blur-sm shadow-md">
+        <div class="content-container flex flex-col md:flex-row justify-between items-center px-4 md:px-0">
+            <div class="text-2xl font-bold text-gray-800 mb-4 md:mb-0">Ashraf Al Ahad</div>
+            <nav>
+                <ul class="flex flex-wrap justify-center space-x-4 md:space-x-8 text-sm md:text-base font-medium">
+                    <li><a href="#about" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">About</a></li>
+                    <li><a href="#experience" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Experience</a></li>
+                    <li><a href="#skills" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Skills</a></li>
+                    <li><a href="#certifications" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Certifications</a></li>
+                    <li><a href="#contact" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+    <section id="hero" class="py-16 md:py-36 mb-16 shadow-2xl" style="background-color: var(--executive-blue);">
+        <div class="content-container grid md:grid-cols-12 gap-10 items-center">
+            <div class="md:col-span-8 text-center md:text-left">
+                <p class="text-base md:text-lg font-bold text-gray-400 mb-4 uppercase tracking-widest">Scaling Growth, Driving ROI</p>
+                
+                <h1 class="text-4xl sm:text-6xl font-black leading-tight text-white mb-6">
+                    Performance-Focused
+                    <span class="block text-gray-300">Media Buyer</span>
+                </h1>
+                
+                <p class="text-base md:text-lg text-gray-300 leading-relaxed mb-8 max-w-2xl mx-auto md:mx-0">
+                    5+ years of experience managing six-figure budgets across all major platforms, turning ad spend into predictable revenue for eCommerce and service clients.
+                </p>
+                
+                <div class="block md:hidden mb-12">
+                    <img src="profile-photo.png" alt="Ashraf Al Ahad - Professional Profile" class="hero-image-frame" style="height: 300px;">
+                </div>
+                
+                <a href="#experience" class="cta-button" style="background-color: white; color: var(--executive-blue); padding: 0.85rem 3rem; border-radius: 0; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">
+                    VIEW CASE STUDIES
+                </a>
+            </div>
+            <div class="md:col-span-4 hidden md:block">
+                <img src="profile-photo.png" alt="Ashraf Al Ahad - Professional Profile" class="hero-image-frame">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 mb-20 content-container">
+        <div class="max-w-4xl mx-auto text-primary-text">
+            <p class="text-xl font-bold text-executive-blue mb-2 uppercase tracking-wide text-center">EXECUTIVE SUMMARY</p>
+            <h2 class="text-4xl md:text-5xl font-black mb-8 leading-tight text-center">I bridge Data & Revenue.</h2>
+            <p class="text-xl leading-relaxed mb-6 font-medium text-secondary-text text-center md:text-left">
+                Proficient in managing six-figure budgets across Google Ads, Meta, LinkedIn, and TikTok Ads. I specialize in leveraging GA4 and Google Tag Manager for data-driven decisions that reduce customer acquisition costs and maximize ROI. Eager to apply my expertise in budget management, audience targeting, and conversion optimization to drive growth for your agency's clients.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-8 mt-10">
+                <div class="flex items-center text-lg font-extrabold text-green-700">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.066 12.066 0 002 12c0 2.83.668 5.42 1.815 7.625M12 21c4.418 0 8-3.582 8-8s-3.582-8-8-8"></path></svg>
+                    Six-Figure Budget Management
+                </div>
+                <div class="flex items-center text-lg font-extrabold text-green-700">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    Optimized CAC / Max ROAS
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-16 mb-16 bg-blue-100/60 shadow-xl">
+        <div class="content-container px-6 md:px-0">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-12">Work Experience & Results</h2>
+            <div class="max-w-4xl mx-auto bg-white p-6 rounded-2xl shadow-2xl mb-12">
+                <h3 class="text-2xl font-bold text-red-700 text-center">heartandsoil.co</h3>
+                <p class="text-center text-gray-500 mb-4 text-sm font-medium"> Supplement E-Commerce Brand</p>
+                <a href="#" class="screenshot-link block" onclick="openModal('Screenshot 2025-07-01 183635.png'); return false;">
+                    <img src="Screenshot 2025-07-01 183635.png" alt="heartandsoil.co Shopify Sales Result" class="w-full h-auto rounded-xl border-4 border-yellow-400 shadow-lg transition-transform transform duration-300">
+                </a>
+                <div class="mt-6 p-4 bg-yellow-50 rounded-lg text-center">
+                    <p class="text-xl font-bold text-green-800 mb-2">
+                        Generated $1.2M+ Sales in just 1 Month
+                    </p>
+                    <ul class="list-none text-gray-700 space-y-1">
+                        <li>• Google Shopping Ads Setup & Management</li>
+                        <li>• Social Media Management</li>
+                        <li>• Running Meta Ads</li>
+                        <li>• TikTok Ads</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-white p-6 rounded-2xl shadow-2xl mb-12">
+                <h3 class="text-2xl font-bold text-red-700 text-center">justthrivehealth.com</h3>
+                <p class="text-center text-gray-500 mb-4 text-sm font-medium">E-Commerce</p>
+                <a href="#" class="screenshot-link block" onclick="openModal('Screenshot 2025-06-26 102523.png'); return false;">
+                    <img src="Screenshot 2025-06-26 102523.png" alt="Just Thrive Health Shopify Sales Result" class="w-full h-auto rounded-xl border-4 border-yellow-400 shadow-lg transition-transform transform duration-300">
+                </a>
+                <div class="mt-6 p-4 bg-yellow-50 rounded-lg text-center">
+                    <p class="text-xl font-bold text-green-800 mb-2">
+                        Generated $600K+ Sales in just 90 days
+                    </p>
+                    <ul class="list-none text-gray-700 space-y-1">
+                        <li>• Google Shopping Ads Setup & Management</li>
+                        <li>• Running Meta Ads & Management</li>
+                        <li>• Conversion Tracking</li>
+                    </ul>
+                </div>
+                <div class="mt-10 text-center">
+                    <p class="text-lg font-semibold text-blue-700 mb-6">
+                        See my detailed portfolio for more campaign results:
+                    </p>
+                    <div class="flex flex-col md:flex-row justify-center items-center gap-4">
+                        <a href="google-ads-portfolio.html" class="google-ads-btn inline-block bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-500 text-base w-full md:w-auto">
+                            Google Ads Portfolio
+                        </a>
+                        <a href="meta-ads-portfolio.html" class="meta-ads-btn inline-block bg-[#A352D0] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-500 text-base w-full md:w-auto">
+                            Meta Ads Portfolio
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mt-16">
+                <div class="bg-white p-6 rounded-2xl shadow-lg transition-transform transform hover:scale-[1.03]">
+                    <h3 class="text-xl font-bold text-blue-700">WORLD CLASS LIGHTING</h3>
+                    <p class="text-gray-500 mb-3 text-sm font-medium">E-Commerce</p>
+                    <p class="font-semibold text-gray-800 mb-3">Generated $200K+ Sales By Spending Only $20K.</p>
+                    <ul class="text-gray-700 space-y-1 text-sm list-disc list-inside">
+                        <li>Google Shopping Ads</li>
+                        <li>Google Analytics 4 setup</li>
+                        <li>Conversion Tracking</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg transition-transform transform hover:scale-[1.03]">
+                    <h3 class="text-xl font-bold text-blue-700">ALL STAR PLUMBING</h3>
+                    <p class="text-gray-500 mb-3 text-sm font-medium">Service Provider</p>
+                    <p class="font-semibold text-gray-800 mb-3">Generating high-quality leads and calls.</p>
+                    <ul class="text-gray-700 space-y-1 list-disc list-inside">
+                        <li>Google PPC and Call Ads</li>
+                        <li>Campaign Optimization</li>
+                        <li>Social Media Management</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg transition-transform transform hover:scale-[1.03]">
+                    <h3 class="text-xl font-bold text-blue-700">NOVVI PROPERTIES</h3>
+                    <p class="text-gray-500 mb-3 text-sm font-medium">Real Estate</p>
+                    <p class="font-semibold text-gray-800 mb-3">Generated qualified leads and inquiries.</p>
+                    <ul class="text-gray-700 space-y-1 list-disc list-inside">
+                        <li>Google Search PPC Ads</li>
+                        <li>YouTube Ads</li>
+                        <li>Meta Ads</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+                
+    <section id="skills" class="py-16 mb-16 bg-white shadow-lg">
+        <div class="content-container px-6 md:px-0">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-12">Core Skills</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left max-w-6xl mx-auto">
+                <div class="bg-blue-50 p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-blue-700 mb-4">Advertising Platforms</h3>
+                    <ul class="text-gray-700 space-y-2 list-disc list-inside">
+                        <li>Google Ads (Search, Video, Shopping)</li>
+                        <li>Meta Ads (Facebook & Instagram)</li>
+                        <li>Linkedin Ads, TikTok Ads</li>
+                        <li>Programmatic & DSP Experience</li>
+                    </ul>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-blue-700 mb-4">Analytics & Tracking</h3>
+                    <ul class="text-gray-700 space-y-2 list-disc list-inside">
+                        <li>Google Analytics (GA4)</li>
+                        <li>Google Tag Manager (GTM)</li>
+                        <li>Conversion Tracking & Pixel Setup</li>
+                        <li>A/B Testing & Funnel Optimization</li>
+                    </ul>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-blue-700 mb-4">Marketing Focus</h3>
+                    <ul class="text-gray-700 space-y-2 list-disc list-inside">
+                        <li>Lead Generation & Retargeting</li>
+                        <li>eCommerce Performance Marketing</li>
+                        <li>Budget Scaling & Reporting</li>
+                        <li>KPI Monitoring</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="py-16 mb-16 bg-blue-50/60 shadow-lg">
+        <div class="content-container px-6 md:px-0">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-12">Certifications</h2>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-2xl shadow-md text-center">
+                    <h3 class="text-xl font-bold text-blue-700 mb-2">Google Ads</h3>
+                    <ul class="text-gray-700 space-y-2">
+                        <li>Google Ads Search Certification</li>
+                        <li>Google Ads Shopping Certification</li>
+                        <li>YouTube Video Ads Certification</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-md text-center">
+                    <h3 class="text-xl font-bold text-blue-700 mb-2">Google Analytics</h3>
+                    <ul class="text-gray-700 space-y-2">
+                        <li>Google Analytics (GA4) Certification</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 bg-blue-800 text-white">
+        <div class="content-container px-6 md:px-0">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Get in Touch</h2>
+                <p class="text-lg text-blue-200 mb-8 font-medium">Ready to scale your business? Let's discuss a strategy that drives measurable results.</p>
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
+                    <a href="https://linkedin.com/in/ashrafalahad" target="_blank" class="contact-btn inline-block py-3 px-6 rounded-full bg-blue-600 font-bold hover:bg-blue-500 transition-all duration-300 w-full md:w-auto">LinkedIn</a>
+                    <a href="mailto:ashrafalahad@gmail.com" class="contact-btn inline-block py-3 px-6 rounded-full bg-yellow-500 text-blue-900 font-bold hover:bg-yellow-400 transition-all duration-300 w-full md:w-auto">Email Me</a>
+                    <a href="https://wa.me/qr/AONCYJ5UJEF5D1" target="_blank" class="contact-btn inline-block py-3 px-6 rounded-full bg-green-500 font-bold hover:bg-green-400 transition-all duration-300 w-full md:w-auto">WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer class="text-center py-8 text-sm text-gray-500 mt-12 content-container border-t border-gray-300">
+        <p>&copy; 2025 Ashraf Al Ahad. All Rights Reserved.</p>
+        <div class="mt-4 flex justify-center space-x-4">
+            <a href="https://linkedin.com/in/ashrafalahad" target="_blank" class="mx-2 hover:text-blue-600 transition-colors duration-300">LinkedIn</a>
+        </div>
+    </footer>
+
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
     
-    /* ... (Existing styles remain the same) ... */
-</style>
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Lightbox functions
+        function openModal(src) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("img01");
+            modal.style.display = "block";
+            modalImg.src = src;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("imageModal");
+            modal.style.display = "none";
+        }
+
+        // Close modal when clicking outside the image
+        const modal = document.getElementById('imageModal');
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal when pressing the ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape" && modal.style.display === "block") {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
