@@ -107,7 +107,7 @@
 
 
         /* Merged Styles for Work/Skills/Contact Sections */
-        .cta-button:hover { transform: scale(1.05); background-color: #1d4ed8; }
+        /* Removed conflicting .cta-button:hover style, using inline utility classes */
         .google-ads-btn:hover { background-color: #f59e0b; color: #1e40af; transform: rotate(-1deg) scale(1.02); }
         .meta-ads-btn:hover { background-color: #8542A8; transform: translateY(-3px); }
         .contact-btn:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
@@ -213,9 +213,17 @@
                     <img src="profile-photo.png" alt="Ashraf Al Ahad - Professional Profile" class="hero-image-mobile">
                 </div>
                 
-                <a href="#experience" class="cta-button" style="background-color: white; color: var(--executive-blue); padding: 0.85rem 3rem; border-radius: 0; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">
-                    VIEW CASE STUDIES
-                </a>
+                <!-- UPDATED: Two-Button Group (View Case Studies + Download Resume) -->
+                <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6">
+                    <!-- Main CTA: White background, Executive Blue text, Rounded-Lg -->
+                    <a href="#experience" class="inline-block text-center py-3 px-6 rounded-lg font-extrabold tracking-wider uppercase hover:scale-[1.03] transition-all duration-300" style="background-color: white; color: var(--executive-blue);">
+                        VIEW CASE STUDIES
+                    </a>
+                    <!-- Secondary CTA: Yellow background, White text, Rounded-Lg (Matching shape) -->
+                    <a href="Resume of Ashraf Al Ahad.pdf" download class="inline-block text-center bg-yellow-500 text-white py-3 px-6 rounded-lg font-extrabold tracking-wider uppercase hover:scale-[1.05] hover:bg-yellow-400 transition-all duration-300">
+                        DOWNLOAD RESUME
+                    </a>
+                </div>
             </div>
             <!-- Desktop Image (Now Circular) -->
             <div class="md:col-span-4 hidden md:block">
