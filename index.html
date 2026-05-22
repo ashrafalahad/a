@@ -1,544 +1,1085 @@
+
+raw
+Index · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NG37CHKG');</script>
-<!-- End Google Tag Manager -->
-    
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    '</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ashraf Al Ahad - Performance-Driven Media Buyer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap">
-    <style>
-        /* ---------------------------------------------------- */
-        /* COMBINED STYLE VARIABLES (Executive & Clean Blue) */
-        /* ---------------------------------------------------- */
-        :root {
-            /* Executive Theme for Header/Hero */
-            --executive-blue: #05445E; /* Deep Professional Blue */
-            --accent-silver: #A9A9A9; /* Metallic Silver/Gray Accent */
-            --primary-text: #171717;
-            --secondary-text: #4A4A4A; /* Used in about section */
-            
-            /* Clean Theme for Body/Sections */
-            --body-bg: #f0f4f8; /* From the second code block */
-            --clean-blue-header: #1e40af; /* Deep Blue for buttons/headers in sections */
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--body-bg);
-            color: var(--primary-text);
-            scroll-behavior: smooth;
-        }
-        
-        * {
-            transition: all 0.3s ease-out;
-        }
-
-        .content-container {
-            max-width: 78rem; 
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-        }
-        
-        /* ---------------------------------------------------- */
-        /* EXECUTIVE HEADER STYLES (Kept Original) */
-        /* ---------------------------------------------------- */
-        .sticky-header {
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(6px);
-            border-bottom: 3px solid var(--executive-blue); 
-        }
-        .nav-link {
-            color: var(--primary-text);
-            font-weight: 700;
-            padding: 0.25rem 0;
-            letter-spacing: 0.05em;
-        }
-        .nav-link:hover {
-            color: var(--executive-blue);
-            border-bottom: 3px solid var(--executive-blue);
-        }
-        .cta-secondary {
-            background-color: var(--accent-silver);
-            color: var(--primary-text);
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            padding: 0.6rem 2rem;
-            border-radius: 0;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-        }
-        .cta-secondary:hover {
-            background-color: #909090;
-            transform: translateY(-1px);
-        }
-        
-        /* Desktop Hero Image Styling: Now Circular for PC view */
-        .hero-image-frame {
-            border: 6px solid #FFFFFF;
-            border-radius: 50%; /* Made circular */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); 
-            width: 300px; /* Fixed width */
-            height: 300px; /* Fixed height for circle */
-            object-fit: cover;
-            object-position: top;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Mobile Hero Image Styling: Remains smaller circle */
-        .hero-image-mobile {
-            width: 150px; 
-            height: 150px;
-            border-radius: 50%; 
-            object-fit: cover;
-            object-position: top; 
-            border: 4px solid #FFFFFF; 
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
-            margin: 0 auto 1.5rem auto; 
-            display: block; 
-        }
-
-
-        /* Merged Styles for Work/Skills/Contact Sections */
-        /* Removed conflicting .cta-button:hover style, using inline utility classes */
-        .google-ads-btn:hover { background-color: #f59e0b; color: #1e40af; transform: rotate(-1deg) scale(1.02); }
-        .meta-ads-btn:hover { background-color: #8542A8; transform: translateY(-3px); }
-        .contact-btn:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
-        .screenshot-link:hover { transform: scale(1.02); }
-        .scroll-smooth-behavior { scroll-behavior: smooth; }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #e2e8f0; }
-        ::-webkit-scrollbar-thumb { background-color: #94a3b8; border-radius: 4px; }
-        
-        /* ---------------------------------------------------- */
-        /* LIGHTBOX/MODAL STYLES */
-        /* ---------------------------------------------------- */
-        .modal {
-            display: none; 
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            overflow: auto; 
-            padding: 10px;
-            box-sizing: border-box;
-            text-align: center;
-        }
-
-        .modal-content {
-            margin: 10% auto;
-            display: block;
-            width: auto;
-            max-width: 95%;
-            max-height: 80vh;
-            object-fit: contain;
-            position: relative;
-            animation-name: zoom;
-            animation-duration: 0.6s;
-        }
-
-        @keyframes zoom {
-            from {transform: scale(0); opacity: 0;}
-            to {transform: scale(1) translateY(-50%); opacity: 1;}
-        }
-
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        
-        /* DOWNLOAD SUCCESS MODAL STYLES */
-        #downloadSuccessModal {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10000;
-            animation: fadeIn 0.3s ease-out;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        @keyframes fadeIn {
-            from {opacity: 0; transform: translate(-50%, -60%);}
-            to {opacity: 1; transform: translate(-50%, -50%);}
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashraf Al Ahad — Performance Media Buyer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #060810;
+  --bg2: #0c0f1e;
+  --gold: #F5A623;
+  --gold2: #FFD060;
+  --white: #F0EEE8;
+  --muted: #7A7D8E;
+  --card: rgba(255,255,255,0.03);
+  --border: rgba(245,166,35,0.15);
+  --glow: 0 0 40px rgba(245,166,35,0.25);
+}
+ 
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+html { scroll-behavior: smooth; }
+ 
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--white);
+  overflow-x: hidden;
+  cursor: none;
+}
+ 
+/* ─── CUSTOM CURSOR ─── */
+#cursor {
+  position: fixed; width: 10px; height: 10px;
+  background: var(--gold); border-radius: 50%;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width .2s, height .2s, background .2s;
+  mix-blend-mode: normal;
+}
+#cursor-ring {
+  position: fixed; width: 36px; height: 36px;
+  border: 1.5px solid rgba(245,166,35,0.5); border-radius: 50%;
+  pointer-events: none; z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform .08s ease-out, width .3s, height .3s, border-color .3s;
+}
+body:has(a:hover, button:hover) #cursor { width: 16px; height: 16px; background: var(--gold2); }
+body:has(a:hover, button:hover) #cursor-ring { width: 52px; height: 52px; border-color: var(--gold); }
+ 
+/* ─── CANVAS BACKGROUND ─── */
+#bg-canvas {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.55;
+}
+ 
+/* ─── NOISE OVERLAY ─── */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 1; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 200px;
+  opacity: 0.4;
+}
+ 
+/* ─── WRAPPER ─── */
+.wrap { position: relative; z-index: 2; }
+ 
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.4rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(6,8,16,0); backdrop-filter: blur(0px);
+  border-bottom: 1px solid transparent;
+  transition: all 0.5s ease;
+}
+nav.scrolled {
+  background: rgba(6,8,16,0.92); backdrop-filter: blur(20px);
+  border-bottom-color: var(--border);
+}
+.nav-logo {
+  font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem;
+  color: var(--white); text-decoration: none; letter-spacing: 0.05em;
+}
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-family: 'Space Mono', monospace; font-size: 0.72rem;
+  color: var(--muted); text-decoration: none; letter-spacing: 0.12em;
+  text-transform: uppercase; transition: color 0.3s;
+  position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; right: 100%;
+  height: 1px; background: var(--gold); transition: right 0.3s ease;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { right: 0; }
+ 
+/* ─── HERO ─── */
+#hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 8rem 3rem 4rem;
+  position: relative; overflow: hidden;
+}
+.hero-inner {
+  max-width: 1100px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+}
+.hero-text { position: relative; }
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: 'Space Mono', monospace; font-size: 0.68rem;
+  color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  opacity: 0; animation: fadeUp 0.8s 0.3s forwards;
+}
+.hero-tag::before {
+  content: ''; width: 28px; height: 1px; background: var(--gold);
+}
+h1 {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(2.8rem, 5vw, 4.6rem); line-height: 1.0;
+  margin-bottom: 1.2rem; color: var(--white);
+  opacity: 0; animation: fadeUp 0.8s 0.5s forwards;
+}
+h1 em {
+  font-style: normal; color: var(--gold);
+  background: linear-gradient(135deg, #F5A623, #FFD060);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero-sub {
+  font-size: 1.05rem; color: var(--muted); line-height: 1.7; max-width: 430px;
+  margin-bottom: 2.5rem;
+  opacity: 0; animation: fadeUp 0.8s 0.7s forwards;
+}
+.hero-ctas {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp 0.8s 0.9s forwards;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--gold); color: #0A0A0F;
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.82rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.9rem 2rem; border-radius: 3px; text-decoration: none;
+  transition: all 0.3s; position: relative; overflow: hidden;
+}
+.btn-primary::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.2));
+  transform: translateX(-100%); transition: transform 0.4s ease;
+}
+.btn-primary:hover::before { transform: translateX(100%); }
+.btn-primary:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245,166,35,0.35); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  border: 1px solid var(--border); color: var(--white);
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.82rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.9rem 2rem; border-radius: 3px; text-decoration: none;
+  transition: all 0.3s; backdrop-filter: blur(4px);
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+ 
+/* ─── HERO STATS ─── */
+.hero-stats {
+  display: flex; gap: 2.5rem; margin-top: 3.5rem;
+  opacity: 0; animation: fadeUp 0.8s 1.1s forwards;
+}
+.stat-item { display: flex; flex-direction: column; }
+.stat-num {
+  font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2.2rem;
+  color: var(--gold); line-height: 1;
+}
+.stat-label { font-size: 0.72rem; color: var(--muted); margin-top: 0.3rem; letter-spacing: 0.06em; }
+ 
+/* ─── HERO IMAGE ─── */
+.hero-image-wrap {
+  position: relative;
+  opacity: 0; animation: fadeScale 1s 0.6s forwards;
+}
+.hero-image-wrap::before {
+  content: ''; position: absolute; inset: -2px;
+  border-radius: 50%;
+  background: conic-gradient(var(--gold), var(--gold2), transparent, transparent, var(--gold));
+  animation: spinBorder 8s linear infinite;
+  z-index: -1;
+}
+.hero-image-wrap::after {
+  content: ''; position: absolute; inset: 6px;
+  background: var(--bg); border-radius: 50%; z-index: -1;
+}
+.hero-img {
+  width: 340px; height: 340px; border-radius: 50%;
+  object-fit: cover; object-position: top;
+  display: block; margin: 0 auto;
+  border: 4px solid var(--bg);
+  position: relative; z-index: 1;
+  filter: grayscale(15%) contrast(1.05);
+}
+.img-fallback {
+  width: 340px; height: 340px; border-radius: 50%;
+  background: linear-gradient(135deg, #1a1f3a, #2a2f5a);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto;
+  font-family: 'Syne', sans-serif; font-size: 5rem; font-weight: 800;
+  color: var(--gold);
+}
+.floating-badge {
+  position: absolute; background: var(--bg2);
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 0.7rem 1rem; backdrop-filter: blur(10px);
+}
+.badge-1 { top: 10%; right: -10%; animation: float 4s ease-in-out infinite; }
+.badge-2 { bottom: 15%; left: -10%; animation: float 4s 2s ease-in-out infinite; }
+.badge-label { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+.badge-value { font-family: 'Syne', sans-serif; font-weight: 700; color: var(--gold); font-size: 1rem; }
+ 
+/* ─── MARQUEE ─── */
+.marquee-wrap {
+  overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  padding: 0.9rem 0; background: rgba(245,166,35,0.03);
+}
+.marquee-track {
+  display: flex; gap: 0; white-space: nowrap;
+  animation: marquee 25s linear infinite;
+}
+.marquee-item {
+  display: inline-flex; align-items: center; gap: 1.2rem;
+  font-family: 'Space Mono', monospace; font-size: 0.72rem;
+  color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0 2.5rem;
+}
+.marquee-dot { width: 4px; height: 4px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+ 
+/* ─── SECTION COMMON ─── */
+section { padding: 7rem 3rem; }
+.section-max { max-width: 1100px; margin: 0 auto; }
+.section-label {
+  font-family: 'Space Mono', monospace; font-size: 0.68rem;
+  color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase;
+  margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem;
+}
+.section-label::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
+h2 {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1;
+  color: var(--white); margin-bottom: 1.2rem;
+}
+h2 em { font-style: normal; color: var(--gold); }
+ 
+/* ─── ABOUT ─── */
+#about { background: var(--bg2); }
+.about-grid {
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 6rem; align-items: center;
+}
+.about-text p { color: var(--muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.2rem; }
+.about-highlights { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+.highlight-item {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1rem 1.2rem; border: 1px solid var(--border);
+  border-radius: 6px; background: var(--card);
+  transition: all 0.3s; backdrop-filter: blur(4px);
+}
+.highlight-item:hover { border-color: var(--gold); transform: translateX(6px); }
+.hi-icon { font-size: 1.2rem; width: 2rem; flex-shrink: 0; }
+.hi-label { font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.9rem; }
+.about-numbers { display: flex; flex-direction: column; gap: 2rem; }
+.big-num-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+  padding: 1.8rem 2rem; position: relative; overflow: hidden;
+  transition: all 0.4s;
+}
+.big-num-card::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(245,166,35,0.05) 0%, transparent 60%);
+  opacity: 0; transition: opacity 0.4s;
+}
+.big-num-card:hover { border-color: var(--gold); box-shadow: var(--glow); }
+.big-num-card:hover::after { opacity: 1; }
+.big-num { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 3rem; color: var(--gold); line-height: 1; }
+.big-num-desc { font-size: 0.85rem; color: var(--muted); margin-top: 0.4rem; letter-spacing: 0.05em; }
+ 
+/* ─── EXPERIENCE ─── */
+#experience { background: var(--bg); }
+.exp-header { text-align: center; margin-bottom: 4rem; }
+.exp-header h2 { text-align: center; }
+.exp-header .section-label { justify-content: center; }
+ 
+/* Featured cards */
+.featured-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden; margin-bottom: 2.5rem;
+  position: relative; transition: all 0.4s;
+}
+.featured-card:hover { border-color: var(--gold); box-shadow: var(--glow); transform: translateY(-4px); }
+.featured-card-inner { padding: 2.5rem; }
+.client-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+.client-name { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--white); }
+.client-type { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 0.2rem; }
+.result-pill {
+  background: linear-gradient(135deg, rgba(245,166,35,0.15), rgba(245,166,35,0.05));
+  border: 1px solid rgba(245,166,35,0.3); border-radius: 50px;
+  padding: 0.5rem 1.2rem;
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.85rem;
+  color: var(--gold);
+}
+.screenshot-img {
+  width: 100%; height: 220px; object-fit: cover;
+  border-radius: 8px; border: 1px solid var(--border);
+  transition: all 0.4s; cursor: zoom-in;
+  filter: brightness(0.85) saturate(0.8);
+}
+.screenshot-img:hover { filter: brightness(1) saturate(1); transform: scale(1.01); }
+.img-placeholder {
+  width: 100%; height: 220px; border-radius: 8px;
+  background: linear-gradient(135deg, #0f1428, #1a2040);
+  border: 1px dashed var(--border); display: flex; align-items: center; justify-content: center;
+  color: var(--muted); font-family: 'Space Mono', monospace; font-size: 0.75rem;
+  text-align: center; padding: 1rem; letter-spacing: 0.08em;
+}
+.services-list { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+.service-tag {
+  font-family: 'Space Mono', monospace; font-size: 0.65rem;
+  color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.3rem 0.8rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 3px;
+  transition: all 0.3s;
+}
+.service-tag:hover { border-color: var(--gold); color: var(--gold); }
+ 
+/* Small cards grid */
+.small-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+.small-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+  padding: 1.8rem; transition: all 0.4s; position: relative; overflow: hidden;
+}
+.small-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  transform: scaleX(0); transition: transform 0.4s;
+}
+.small-card:hover::before { transform: scaleX(1); }
+.small-card:hover { border-color: var(--border); transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+.small-card h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--white); margin-bottom: 0.3rem; }
+.small-card .sc-type { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.8rem; }
+.small-card p { color: var(--muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1rem; }
+.small-card ul { list-style: none; }
+.small-card li { font-size: 0.8rem; color: var(--muted); padding: 0.2rem 0; display: flex; align-items: center; gap: 0.5rem; }
+.small-card li::before { content: '→'; color: var(--gold); font-size: 0.7rem; }
+ 
+/* Portfolio CTA */
+.portfolio-ctas { display: flex; justify-content: center; gap: 1.2rem; margin-top: 3.5rem; flex-wrap: wrap; }
+.port-btn {
+  display: inline-flex; align-items: center; gap: 0.7rem;
+  padding: 0.9rem 2rem; border-radius: 4px;
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.82rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  text-decoration: none; transition: all 0.3s; position: relative; overflow: hidden;
+}
+.port-btn-google { background: rgba(234,67,53,0.12); border: 1px solid rgba(234,67,53,0.3); color: #EA4335; }
+.port-btn-google:hover { background: rgba(234,67,53,0.22); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(234,67,53,0.2); }
+.port-btn-meta { background: rgba(163,82,208,0.12); border: 1px solid rgba(163,82,208,0.3); color: #A352D0; }
+.port-btn-meta:hover { background: rgba(163,82,208,0.22); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(163,82,208,0.2); }
+ 
+/* ─── SKILLS ─── */
+#skills { background: var(--bg2); }
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.skill-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+  padding: 2rem; transition: all 0.4s; position: relative;
+}
+.skill-card:hover { transform: translateY(-4px); border-color: rgba(245,166,35,0.3); }
+.skill-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+.skill-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 1.2rem; color: var(--white); }
+.skill-bar-wrap { margin-bottom: 0.8rem; }
+.skill-bar-label { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--muted); margin-bottom: 0.3rem; font-family: 'Space Mono', monospace; }
+.skill-bar {
+  height: 3px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden;
+}
+.skill-bar-fill {
+  height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold2));
+  border-radius: 2px; width: 0; transition: width 1.5s cubic-bezier(0.4,0,0.2,1);
+}
+ 
+/* ─── CERTIFICATIONS ─── */
+#certifications { background: var(--bg); }
+.cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.cert-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+  padding: 2rem; display: flex; align-items: flex-start; gap: 1.2rem;
+  transition: all 0.4s;
+}
+.cert-card:hover { transform: translateY(-4px); border-color: rgba(245,166,35,0.4); box-shadow: var(--glow); }
+.cert-icon {
+  width: 44px; height: 44px; border-radius: 8px; flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(245,166,35,0.2), rgba(245,166,35,0.05));
+  border: 1px solid rgba(245,166,35,0.2);
+  display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+}
+.cert-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--white); margin-bottom: 0.3rem; }
+.cert-sub { font-size: 0.8rem; color: var(--muted); }
+ 
+/* ─── CONTACT ─── */
+#contact { background: var(--bg2); }
+.contact-wrap { max-width: 700px; margin: 0 auto; text-align: center; }
+.contact-wrap h2 { margin-bottom: 1rem; }
+.contact-wrap p { color: var(--muted); font-size: 1rem; line-height: 1.8; margin-bottom: 3rem; }
+.contact-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+.contact-btn-item {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.9rem 1.8rem; border-radius: 4px;
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.82rem;
+  letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+  transition: all 0.3s; border: 1px solid var(--border); color: var(--white);
+  backdrop-filter: blur(4px);
+}
+.contact-btn-item:hover { transform: translateY(-4px); }
+.cb-linkedin { border-color: rgba(10,102,194,0.4); background: rgba(10,102,194,0.1); }
+.cb-linkedin:hover { border-color: #0A66C2; box-shadow: 0 10px 30px rgba(10,102,194,0.25); }
+.cb-email { border-color: rgba(245,166,35,0.4); background: rgba(245,166,35,0.1); color: var(--gold); }
+.cb-email:hover { border-color: var(--gold); box-shadow: 0 10px 30px rgba(245,166,35,0.25); }
+.cb-whatsapp { border-color: rgba(37,211,102,0.4); background: rgba(37,211,102,0.1); }
+.cb-whatsapp:hover { border-color: #25D366; box-shadow: 0 10px 30px rgba(37,211,102,0.25); }
+ 
+/* ─── FOOTER ─── */
+footer {
+  background: var(--bg); padding: 2.5rem 3rem;
+  border-top: 1px solid var(--border); text-align: center;
+  font-family: 'Space Mono', monospace; font-size: 0.68rem;
+  color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase;
+}
+ 
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeScale {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes spinBorder {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+ 
+/* ─── SCROLL REVEAL ─── */
+.reveal {
+  opacity: 0; transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+ 
+/* ─── LIGHTBOX ─── */
+.lightbox {
+  position: fixed; inset: 0; z-index: 9000;
+  background: rgba(0,0,0,0.95); display: none;
+  align-items: center; justify-content: center; padding: 2rem;
+  backdrop-filter: blur(6px);
+}
+.lightbox.active { display: flex; }
+.lightbox img { max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 8px; border: 1px solid var(--border); }
+.lightbox-close {
+  position: absolute; top: 1.5rem; right: 2rem;
+  font-size: 2.5rem; color: var(--muted); cursor: none;
+  background: none; border: none; line-height: 1; transition: color 0.2s;
+}
+.lightbox-close:hover { color: var(--white); }
+ 
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  nav { padding: 1.2rem 1.5rem; }
+  .nav-links { gap: 1.5rem; }
+  #hero { padding: 7rem 1.5rem 4rem; }
+  .hero-inner { grid-template-columns: 1fr; text-align: center; }
+  .hero-sub { max-width: 100%; }
+  .hero-ctas { justify-content: center; }
+  .hero-stats { justify-content: center; }
+  .hero-image-wrap { order: -1; }
+  .hero-img, .img-fallback { width: 200px; height: 200px; }
+  .badge-1, .badge-2 { display: none; }
+  section { padding: 5rem 1.5rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .small-cards { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .cert-grid { grid-template-columns: 1fr; }
+  nav { display: flex; flex-direction: column; gap: 0.8rem; }
+  .nav-links { font-size: 0.6rem; flex-wrap: wrap; justify-content: center; }
+  body { cursor: auto; }
+  #cursor, #cursor-ring { display: none; }
+}
+</style>
 </head>
-<body class="scroll-smooth-behavior">
-   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NG37CHKG"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-    <header class="py-4 mb-8 sticky top-0 z-50 bg-white/80 backdrop-blur-sm shadow-md">
-        <div class="content-container flex flex-col md:flex-row justify-between items-center px-4 md:px-0">
-            <div class="text-2xl font-bold text-gray-800 mb-4 md:mb-0">Ashraf Al Ahad</div>
-            <nav>
-                <ul class="flex flex-wrap justify-center space-x-4 md:space-x-8 text-sm md:text-base font-medium">
-                    <li><a href="#about" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">About</a></li>
-                    <li><a href="#experience" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Experience</a></li>
-                    <li><a href="#skills" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Skills</a></li>
-                    <li><a href="#certifications" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Certifications</a></li>
-                    <li><a href="#contact" class="text-blue-600 hover:text-yellow-500 transition-colors duration-300">Contact</a></li>
-                </ul>
-            </nav>
+<body>
+ 
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<canvas id="bg-canvas"></canvas>
+ 
+<div class="wrap">
+ 
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#hero" class="nav-logo">Ashraf<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+ 
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">Performance Media Buyer</div>
+      <h1>Turning Ad Spend<br>Into <em>Revenue</em></h1>
+      <p class="hero-sub">5+ years managing six-figure budgets across Google, Meta, LinkedIn & TikTok. I reduce CAC and maximize ROAS with data-first strategy.</p>
+      <div class="hero-ctas">
+        <a href="#experience" class="btn-primary">View Case Studies ↓</a>
+        <a href="Resume of Ashraf Al Ahad.pdf" class="btn-outline" onclick="handleDownload(event)">Download CV ↗</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num" data-count="1.8" data-suffix="M+">0</span>
+          <span class="stat-label">Revenue Generated</span>
         </div>
-    </header>
-
-    <main>
-    <section id="hero" class="py-16 md:py-36 mb-16 shadow-2xl" style="background-color: var(--executive-blue);">
-        <div class="content-container grid md:grid-cols-12 gap-10 items-center">
-            <div class="md:col-span-8 text-center md:text-left">
-                <p class="text-base md:text-lg font-bold text-gray-400 mb-4 uppercase tracking-widest">Scaling Growth, Driving ROI</p>
-                
-                <!-- H1 uses smaller text on mobile (text-4xl) to fit content -->
-                <h1 class="text-4xl sm:text-6xl font-black leading-tight text-white mb-6">
-                    Performance-Focused
-                    <span class="block text-gray-300">Media Buyer</span>
-                </h1>
-                
-                <!-- P uses smaller text on mobile (text-base) to fit content -->
-                <p class="text-base md:text-lg text-gray-300 leading-relaxed mb-8 max-w-2xl mx-auto md:mx-0">
-                    5+ years of experience managing six-figure budgets across all major platforms, turning ad spend into predictable revenue for eCommerce and service clients.
-                </p>
-                
-                <!-- Mobile Image Display (Circular and smaller) -->
-                <div class="block md:hidden mb-12">
-                    <img src="profile-photo.png" alt="Ashraf Al Ahad - Professional Profile" class="hero-image-mobile">
-                </div>
-                
-                <!-- UPDATED: Two-Button Group (View Case Studies + Download Resume) -->
-                <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6">
-                    <!-- Main CTA: White background, Executive Blue text, Rounded-Lg -->
-                    <a href="#experience" class="inline-block text-center py-3 px-6 rounded-lg font-extrabold tracking-wider uppercase hover:scale-[1.03] transition-all duration-300" style="background-color: white; color: var(--executive-blue);">
-                        VIEW CASE STUDIES
-                    </a>
-                    <!-- Secondary CTA: Yellow background, White text, Rounded-Lg (Matching shape) -->
-                    <a href="Resume of Ashraf Al Ahad.pdf" 
-                       class="inline-block text-center bg-yellow-500 text-white py-3 px-6 rounded-lg font-extrabold tracking-wider uppercase hover:scale-[1.05] hover:bg-yellow-400 transition-all duration-300"
-                       onclick="triggerDownloadAndShowSuccess(event)">
-                        DOWNLOAD RESUME
-                    </a>
-                </div>
-            </div>
-            <!-- Desktop Image (Now Circular) -->
-            <div class="md:col-span-4 hidden md:block">
-                <img src="profile-photo.png" alt="Ashraf Al Ahad - Professional Profile" class="hero-image-frame">
-            </div>
+        <div class="stat-item">
+          <span class="stat-num" data-count="5" data-suffix="+ yrs">0</span>
+          <span class="stat-label">Experience</span>
         </div>
-    </section>
-
-    <section id="about" class="py-16 mb-20 content-container">
-        <div class="max-w-4xl mx-auto text-primary-text">
-            <p class="text-xl font-bold text-executive-blue mb-2 uppercase tracking-wide text-center">EXECUTIVE SUMMARY</p>
-            <h2 class="text-4xl md:text-5xl font-black mb-8 leading-tight text-center">I bridge Data & Revenue.</h2>
-            <p class="text-xl leading-relaxed mb-6 font-medium text-secondary-text text-center md:text-left">
-                Proficient in managing six-figure budgets across Google Ads, Meta, LinkedIn, and TikTok Ads. I specialize in leveraging GA4 and Google Tag Manager for data-driven decisions that reduce customer acquisition costs and maximize ROI. Eager to apply my expertise in budget management, audience targeting, and conversion optimization to drive growth for your agency's clients.
-            </p>
-            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-8 mt-10">
-                <div class="flex items-center text-lg font-extrabold text-green-700">
-                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.066 12.066 0 002 12c0 2.83.668 5.42 1.815 7.625M12 21c4.418 0 8-3.582 8-8s-3.582-8-8-8"></path></svg>
-                    Six-Figure Budget Management
-                </div>
-                <div class="flex items-center text-lg font-extrabold text-green-700">
-                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                    Optimized CAC / Max ROAS
-                </div>
-            </div>
+        <div class="stat-item">
+          <span class="stat-num" data-count="10" data-suffix="+">0</span>
+          <span class="stat-label">Brands Scaled</span>
         </div>
-    </section>
-
-    <section id="experience" class="py-16 mb-16 bg-blue-100/60 shadow-xl">
-        <div class="content-container px-6 md:px-0">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-12">Work Experience & Results</h2>
-            <div class="max-w-4xl mx-auto bg-white p-6 rounded-2xl shadow-2xl mb-12">
-                <h3 class="text-2xl font-bold text-red-700 text-center">heartandsoil.co</h3>
-                <p class="text-center text-gray-500 mb-4 text-sm font-medium"> Supplement E-Commerce Brand</p>
-                <a href="#" class="screenshot-link block" onclick="openModal('Screenshot 2025-07-01 183635.png'); return false;">
-                    <img src="Screenshot 2025-07-01 183635.png" onerror="this.onerror=null; this.src='https://placehold.co/1000x500/808080/ffffff?text=Heart+And+Soil+Sales+Screenshot';" alt="heartandsoil.co Shopify Sales Result" class="w-full h-auto rounded-xl border-4 border-yellow-400 shadow-lg transition-transform transform duration-300">
-                </a>
-                <div class="mt-6 p-4 bg-yellow-50 rounded-lg text-center">
-                    <p class="text-xl font-bold text-green-800 mb-2">
-                        Generated $1.2M+ Sales in just 1 Month
-                    </p>
-                    <ul class="list-none text-gray-700 space-y-1">
-                        <li>• Google Shopping Ads Setup & Management</li>
-                        <li>• Social Media Management</li>
-                        <li>• Running Meta Ads</li>
-                        <li>• TikTok Ads</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="max-w-4xl mx-auto bg-white p-6 rounded-2xl shadow-2xl mb-12">
-                <h3 class="text-2xl font-bold text-red-700 text-center">justthrivehealth.com</h3>
-                <p class="text-center text-gray-500 mb-4 text-sm font-medium">E-Commerce</p>
-                <a href="#" class="screenshot-link block" onclick="openModal('Screenshot 2025-06-26 102523.png'); return false;">
-                    <img src="Screenshot 2025-06-26 102523.png" onerror="this.onerror=null; this.src='https://placehold.co/1000x500/808080/ffffff?text=Just+Thrive+Health+Sales+Screenshot';" alt="Just Thrive Health Shopify Sales Result" class="w-full h-auto rounded-xl border-4 border-yellow-400 shadow-lg transition-transform transform duration-300">
-                </a>
-                <div class="mt-6 p-4 bg-yellow-50 rounded-lg text-center">
-                    <p class="text-xl font-bold text-green-800 mb-2">
-                        Generated $600K+ Sales in just 90 days
-                    </p>
-                    <ul class="list-none text-gray-700 space-y-1">
-                        <li>• Google Shopping Ads Setup & Management</li>
-                        <li>• Running Meta Ads & Management</li>
-                        <li>• Conversion Tracking</li>
-                    </ul>
-                </div>
-                <div class="mt-10 text-center">
-                    <p class="text-lg font-semibold text-blue-700 mb-6">
-                        See my detailed portfolio for more campaign results:
-                    </p>
-                    <div class="flex flex-col md:flex-row justify-center items-center gap-4">
-                        <a href="google-ads-portfolio.html" class="google-ads-btn inline-block bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-500 text-base w-full md:w-auto">
-                            Google Ads Portfolio
-                        </a>
-                        <a href="meta-ads-portfolio.html" class="meta-ads-btn inline-block bg-[#A352D0] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-500 text-base w-full md:w-auto">
-                            Meta Ads Portfolio
-                        </a>
-                
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mt-16">
-                <div class="bg-white p-6 rounded-2xl shadow-lg transition-transform transform hover:scale-[1.03]">
-                    <h3 class="text-xl font-bold text-blue-700">WORLD CLASS LIGHTING</h3>
-                    <p class="text-gray-500 mb-3 text-sm font-medium">E-Commerce</p>
-                    <p class="font-semibold text-gray-800 mb-3">Generated $200K+ Sales By Spending Only $20K.</p>
-                    <ul class="text-gray-700 space-y-1 text-sm list-disc list-inside">
-                        <li>Google Shopping Ads</li>
-                        <li>Google Analytics 4 setup</li>
-                        <li>Conversion Tracking</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-lg transition-transform transform hover:scale-[1.03]">
-                    <h3 class="text-xl font-bold text-blue-700">ALL STAR PLUMBING</h3>
-                    <p class="text-gray-500 mb-3 text-sm font-medium">Service Provider</p>
-                    <p class="font-semibold text-gray-800 mb-3">Generating high-quality leads and calls.</p>
-                    <ul class="text-gray-700 space-y-1 list-disc list-inside">
-                        <li>Google PPC and Call Ads</li>
-                        <li>Campaign Optimization</li>
-                        <li>Social Media Management</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-lg transition-transform transform hover:scale-[1.03]">
-                    <h3 class="text-xl font-bold text-blue-700">NOVVI PROPERTIES</h3>
-                    <p class="text-gray-500 mb-3 text-sm font-medium">Real Estate</p>
-                    <p class="font-semibold text-gray-800 mb-3">Generated qualified leads and inquiries.</p>
-                    <ul class="text-gray-700 space-y-1 list-disc list-inside">
-                        <li>Google Search PPC Ads</li>
-                        <li>YouTube Ads</li>
-                        <li>Meta Ads</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-                
-    <section id="skills" class="py-16 mb-16 bg-white shadow-lg">
-        <div class="content-container px-6 md:px-0">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-12">Core Skills</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left max-w-6xl mx-auto">
-                <div class="bg-blue-50 p-6 rounded-2xl">
-                    <h3 class="text-xl font-bold text-blue-700 mb-4">Advertising Platforms</h3>
-                    <ul class="text-gray-700 space-y-2 list-disc list-inside">
-                        <li>Google Ads (Search, Video, Shopping)</li>
-                        <li>Meta Ads (Facebook & Instagram)</li>
-                        <li>Linkedin Ads, TikTok Ads</li>
-                        <li>Programmatic & DSP Experience</li>
-                    </ul>
-                </div>
-                <div class="bg-blue-50 p-6 rounded-2xl">
-                    <h3 class="text-xl font-bold text-blue-700 mb-4">Analytics & Tracking</h3>
-                    <ul class="text-gray-700 space-y-2 list-disc list-inside">
-                        <li>Google Analytics (GA4)</li>
-                        <li>Google Tag Manager (GTM)</li>
-                        <li>Conversion Tracking & Pixel Setup</li>
-                        <li>A/B Testing & Funnel Optimization</li>
-                    </ul>
-                </div>
-                <div class="bg-blue-50 p-6 rounded-2xl">
-                    <h3 class="text-xl font-bold text-blue-700 mb-4">Marketing Focus</h3>
-                    <ul class="text-gray-700 space-y-2 list-disc list-inside">
-                        <li>Lead Generation & Retargeting</li>
-                        <li>eCommerce Performance Marketing</li>
-                        <li>Budget Scaling & Reporting</li>
-                        <li>KPI Monitoring</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="certifications" class="py-16 mb-16 bg-blue-50/60 shadow-lg">
-        <div class="content-container px-6 md:px-0">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-12">Certifications</h2>
-            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded-2xl shadow-md text-center">
-                    <h3 class="text-xl font-bold text-blue-700 mb-2">Google Ads</h3>
-                    <ul class="text-gray-700 space-y-2">
-                        <li>Google Ads Search Certification</li>
-                        <li>Google Ads Shopping Certification</li>
-                        <li>YouTube Video Ads Certification</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-md text-center">
-                    <h3 class="text-xl font-bold text-blue-700 mb-2">Google Analytics</h3>
-                    <ul class="text-gray-700 space-y-2">
-                        <li>Google Analytics (GA4) Certification</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-       
-
-    <!-- CONTACT SECTION REVERTED TO DARK BLUE (bg-blue-800) -->
-    <section id="contact" class="py-16 bg-blue-800 text-white">
-        <div class="content-container px-6 md:px-0">
-            <div class="max-w-2xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Get in Touch</h2>
-                <!-- Text color adjusted for dark blue background -->
-                <p class="text-lg text-blue-200 mb-8 font-medium">Ready to scale your business? Let's discuss a strategy that drives measurable results.</p>
-                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
-                    <!-- LinkedIn button color adjusted for dark background -->
-                    <a href="https://linkedin.com/in/ashrafalahad" target="_blank" class="contact-btn inline-block py-3 px-6 rounded-full bg-blue-600 font-bold hover:bg-blue-500 transition-all duration-300 w-full md:w-auto">LinkedIn</a>
-                    <!-- Email button kept yellow -->
-                    <a href="mailto:ashrafalahad@gmail.com" class="contact-btn inline-block py-3 px-6 rounded-full bg-yellow-500 text-blue-900 font-bold hover:bg-yellow-400 transition-all duration-300 w-full md:w-auto">Email Me</a>
-                    <!-- WhatsApp button kept green -->
-                    <a href="https://wa.me/qr/AONCYJ5UJEF5D1" target="_blank" class="contact-btn inline-block py-3 px-6 rounded-full bg-green-500 text-white font-bold hover:bg-green-400 transition-all duration-300 w-full md:w-auto">WhatsApp</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    </main>
-
-    <footer class="text-center py-8 text-sm text-gray-500 mt-12 content-container border-t border-gray-300">
-        <p>&copy; 2025 Ashraf Al Ahad. All Rights Reserved.</p>
-        <div class="mt-4 flex justify-center space-x-4">
-            <a href="https://linkedin.com/in/ashrafalahad" target="_blank" class="mx-2 hover:text-blue-600 transition-colors duration-300">LinkedIn</a>
-        </div>
-    </footer>
-
-    <!-- LIGHTBOX MODAL STRUCTURE -->
-    <div id="imageModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="img01">
+      </div>
     </div>
-    
-    <!-- DOWNLOAD SUCCESS MODAL -->
-    <div id="downloadSuccessModal" class="fixed hidden bg-white p-6 md:p-8 rounded-xl text-center z-50 transition-opacity duration-300">
-        <div class="text-green-500 mb-4">
-            <!-- Checkmark/Tick Icon SVG -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-        </div>
-        <p class="text-xl font-bold text-gray-800">Success!</p>
-        <p class="text-gray-600">Ashraf Al Ahad CV is successfully downloaded.</p>
+    <div class="hero-image-wrap">
+      <img src="profile-photo.png" alt="Ashraf Al Ahad" class="hero-img"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="img-fallback" style="display:none;">AA</div>
+      <div class="floating-badge badge-1">
+        <div class="badge-label">Last Month</div>
+        <div class="badge-value">$1.2M+</div>
+      </div>
+      <div class="floating-badge badge-2">
+        <div class="badge-label">ROAS</div>
+        <div class="badge-value">12× Avg</div>
+      </div>
     </div>
-
-    
-    <!-- Scripts -->
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Lightbox functions
-        function openModal(src) {
-            const modal = document.getElementById("imageModal");
-            const modalImg = document.getElementById("img01");
-            modal.style.display = "block";
-            modalImg.src = src;
-        }
-
-        function closeModal() {
-            const modal = document.getElementById("imageModal");
-            modal.style.display = "none";
-        }
-
-        // Close modal when clicking outside the image
-        const modal = document.getElementById('imageModal');
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-
-        // Close modal when pressing the ESC key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === "Escape" && modal.style.display === "block") {
-                closeModal();
-            }
-        });
-
-        /**
-         * Triggers the resume download and displays the success modal instantly.
-         * @param {Event} event The click event.
-         */
-        function triggerDownloadAndShowSuccess(event) {
-            // Prevent the default browser behavior initially so we can control the flow.
-            event.preventDefault();
-
-            const successModal = document.getElementById('downloadSuccessModal');
-            const targetLink = event.currentTarget;
-            
-            // 1. Show the success modal immediately
-            successModal.classList.remove('hidden');
-
-            // 2. Trigger the actual download instantly using a temporary link element
-            const downloadLink = document.createElement('a');
-            downloadLink.href = targetLink.href; // Get the PDF path from the current button's href
-            downloadLink.download = 'Ashraf Al Ahad Resume.pdf'; // Set the desired downloaded filename
-            
-            // Trigger the download
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-            document.body.removeChild(downloadLink);
-
-            // 3. Hide the modal after 3 seconds
-            setTimeout(() => {
-                successModal.classList.add('hidden');
-            }, 3000); 
-        }
-       
-    </script>
+  </div>
+</section>
+ 
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="marquee-dot"></span>Google Ads</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Meta Ads</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>TikTok Ads</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>LinkedIn Ads</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>GA4 Analytics</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Tag Manager</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Conversion Tracking</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>ROAS Optimization</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>eCommerce Growth</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item"><span class="marquee-dot"></span>Google Ads</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Meta Ads</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>TikTok Ads</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>LinkedIn Ads</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>GA4 Analytics</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Tag Manager</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Conversion Tracking</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>ROAS Optimization</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>eCommerce Growth</span>
+  </div>
+</div>
+ 
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-max">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label reveal">Executive Summary</div>
+        <h2 class="reveal">I bridge<br><em>Data</em> & Revenue.</h2>
+        <p class="reveal reveal-delay-1">Proficient in managing six-figure budgets across Google Ads, Meta, LinkedIn, and TikTok. I leverage GA4 and Google Tag Manager for decisions that systematically reduce customer acquisition costs and maximize return on ad spend.</p>
+        <p class="reveal reveal-delay-2">Whether it's an eCommerce brand scaling to 8 figures or a local service provider hunting qualified leads — I build campaigns that compound.</p>
+        <div class="about-highlights reveal reveal-delay-3">
+          <div class="highlight-item">
+            <span class="hi-icon">💰</span>
+            <span class="hi-label">Six-Figure Budget Management</span>
+          </div>
+          <div class="highlight-item">
+            <span class="hi-icon">📉</span>
+            <span class="hi-label">Optimized CAC — Maximized ROAS</span>
+          </div>
+          <div class="highlight-item">
+            <span class="hi-icon">📊</span>
+            <span class="hi-label">Data-Driven Funnel Optimization</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-numbers reveal reveal-delay-2">
+        <div class="big-num-card">
+          <div class="big-num counter" data-target="1200000" data-prefix="$" data-short="true">$0</div>
+          <div class="big-num-desc">Generated for heartandsoil.co in 1 month</div>
+        </div>
+        <div class="big-num-card">
+          <div class="big-num counter" data-target="600000" data-prefix="$" data-short="true">$0</div>
+          <div class="big-num-desc">Generated for justthrivehealth.com in 90 days</div>
+        </div>
+        <div class="big-num-card">
+          <div class="big-num counter" data-target="200000" data-prefix="$" data-short="true">$0</div>
+          <div class="big-num-desc">Sales for World Class Lighting — $20K ad spend</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-max">
+    <div class="exp-header">
+      <div class="section-label reveal">Case Studies</div>
+      <h2 class="reveal">Work <em>Results</em></h2>
+    </div>
+ 
+    <!-- Card 1 -->
+    <div class="featured-card reveal">
+      <div class="featured-card-inner">
+        <div class="client-header">
+          <div>
+            <div class="client-name">heartandsoil.co</div>
+            <div class="client-type">Supplement eCommerce</div>
+          </div>
+          <div class="result-pill">$1.2M+ Sales in 1 Month</div>
+        </div>
+        <img src="Screenshot 2025-07-01 183635.png" class="screenshot-img"
+          alt="Heart and Soil Results"
+          onclick="openLightbox(this.src)"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="img-placeholder" style="display:none;">📊 heartandsoil.co — Shopify Sales Dashboard<br><span style="font-size:0.65rem;margin-top:0.5rem;display:block">(Replace screenshot file to display)</span></div>
+        <div class="services-list">
+          <span class="service-tag">Google Shopping</span>
+          <span class="service-tag">Meta Ads</span>
+          <span class="service-tag">TikTok Ads</span>
+          <span class="service-tag">Social Media Management</span>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Card 2 -->
+    <div class="featured-card reveal">
+      <div class="featured-card-inner">
+        <div class="client-header">
+          <div>
+            <div class="client-name">justthrivehealth.com</div>
+            <div class="client-type">Health eCommerce</div>
+          </div>
+          <div class="result-pill">$600K+ Sales in 90 Days</div>
+        </div>
+        <img src="Screenshot 2025-06-26 102523.png" class="screenshot-img"
+          alt="Just Thrive Health Results"
+          onclick="openLightbox(this.src)"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="img-placeholder" style="display:none;">📊 justthrivehealth.com — Shopify Sales Dashboard<br><span style="font-size:0.65rem;margin-top:0.5rem;display:block">(Replace screenshot file to display)</span></div>
+        <div class="services-list">
+          <span class="service-tag">Google Shopping</span>
+          <span class="service-tag">Meta Ads</span>
+          <span class="service-tag">Conversion Tracking</span>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Small cards -->
+    <div class="small-cards">
+      <div class="small-card reveal">
+        <h3>World Class Lighting</h3>
+        <div class="sc-type">eCommerce</div>
+        <p>Generated $200K+ Sales by spending only $20K — 10× ROAS.</p>
+        <ul>
+          <li>Google Shopping Ads</li>
+          <li>GA4 Setup</li>
+          <li>Conversion Tracking</li>
+        </ul>
+      </div>
+      <div class="small-card reveal reveal-delay-1">
+        <h3>All Star Plumbing</h3>
+        <div class="sc-type">Service Provider</div>
+        <p>High-quality leads and inbound calls from targeted PPC campaigns.</p>
+        <ul>
+          <li>Google PPC & Call Ads</li>
+          <li>Campaign Optimization</li>
+          <li>Social Media Mgmt</li>
+        </ul>
+      </div>
+      <div class="small-card reveal reveal-delay-2">
+        <h3>Novvi Properties</h3>
+        <div class="sc-type">Real Estate</div>
+        <p>Qualified buyer & seller inquiries via multi-channel paid media.</p>
+        <ul>
+          <li>Google Search PPC</li>
+          <li>YouTube Ads</li>
+          <li>Meta Ads</li>
+        </ul>
+      </div>
+    </div>
+ 
+    <div class="portfolio-ctas reveal">
+      <a href="google-ads-portfolio.html" class="port-btn port-btn-google">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/></svg>
+        Google Ads Portfolio
+      </a>
+      <a href="meta-ads-portfolio.html" class="port-btn port-btn-meta">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        Meta Ads Portfolio
+      </a>
+    </div>
+  </div>
+</section>
+ 
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-max">
+    <div class="section-label reveal">Expertise</div>
+    <h2 class="reveal">Core <em>Skills</em></h2>
+    <div class="skills-grid" style="margin-top:3rem">
+      <div class="skill-card reveal">
+        <div class="skill-icon">🎯</div>
+        <div class="skill-title">Advertising Platforms</div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>Google Ads</span><span>96%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="96"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>Meta Ads</span><span>93%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="93"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>TikTok Ads</span><span>85%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>LinkedIn Ads</span><span>80%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
+        </div>
+      </div>
+      <div class="skill-card reveal reveal-delay-1">
+        <div class="skill-icon">📈</div>
+        <div class="skill-title">Analytics & Tracking</div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>Google Analytics 4</span><span>94%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="94"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>Google Tag Manager</span><span>90%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>Conversion Tracking</span><span>95%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>A/B Testing</span><span>88%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="88"></div></div>
+        </div>
+      </div>
+      <div class="skill-card reveal reveal-delay-2">
+        <div class="skill-icon">🚀</div>
+        <div class="skill-title">Marketing Strategy</div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>eCommerce Performance</span><span>97%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="97"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>Lead Generation</span><span>92%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="92"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>Budget Scaling</span><span>90%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>Retargeting Funnels</span><span>93%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="93"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-max">
+    <div class="section-label reveal">Official</div>
+    <h2 class="reveal"><em>Certifications</em></h2>
+    <div class="cert-grid" style="margin-top:3rem">
+      <div class="cert-card reveal">
+        <div class="cert-icon">🔍</div>
+        <div>
+          <div class="cert-name">Google Ads Search Certification</div>
+          <div class="cert-sub">Google Skillshop — Verified</div>
+        </div>
+      </div>
+      <div class="cert-card reveal reveal-delay-1">
+        <div class="cert-icon">🛒</div>
+        <div>
+          <div class="cert-name">Google Ads Shopping Certification</div>
+          <div class="cert-sub">Google Skillshop — Verified</div>
+        </div>
+      </div>
+      <div class="cert-card reveal reveal-delay-2">
+        <div class="cert-icon">▶️</div>
+        <div>
+          <div class="cert-name">YouTube Video Ads Certification</div>
+          <div class="cert-sub">Google Skillshop — Verified</div>
+        </div>
+      </div>
+      <div class="cert-card reveal reveal-delay-3">
+        <div class="cert-icon">📊</div>
+        <div>
+          <div class="cert-name">Google Analytics (GA4) Certification</div>
+          <div class="cert-sub">Google Skillshop — Verified</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-max">
+    <div class="contact-wrap">
+      <div class="section-label reveal" style="justify-content:center">Let's Talk</div>
+      <h2 class="reveal">Ready to <em>Scale</em>?</h2>
+      <p class="reveal reveal-delay-1">Ready to turn your ad budget into predictable revenue? Let's build a strategy that delivers measurable results for your business.</p>
+      <div class="contact-btns reveal reveal-delay-2">
+        <a href="https://linkedin.com/in/ashrafalahad" target="_blank" class="contact-btn-item cb-linkedin">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          LinkedIn
+        </a>
+        <a href="mailto:ashrafalahad@gmail.com" class="contact-btn-item cb-email">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          Email Me
+        </a>
+        <a href="https://wa.me/qr/AONCYJ5UJEF5D1" target="_blank" class="contact-btn-item cb-whatsapp">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<footer>
+  <p>© 2025 Ashraf Al Ahad — Performance Media Buyer &nbsp;·&nbsp; All Rights Reserved</p>
+</footer>
+ 
+</div><!-- end .wrap -->
+ 
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <img id="lightbox-img" src="" alt="Screenshot">
+</div>
+ 
+<!-- SUCCESS TOAST -->
+<div id="toast" style="
+  position:fixed; bottom:2rem; left:50%; transform:translateX(-50%) translateY(80px);
+  background:#1a2040; border:1px solid rgba(245,166,35,0.4); color:var(--white);
+  padding:1rem 2rem; border-radius:6px; font-family:'Space Mono',monospace;
+  font-size:0.72rem; letter-spacing:0.08em; z-index:9999;
+  transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  display:flex; align-items:center; gap:0.8rem;
+">
+  <span style="color:#22c55e;font-size:1rem;">✓</span> Resume downloaded successfully!
+</div>
+ 
+<script>
+// ─── CURSOR ───
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+function animateCursor() {
+  cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+  rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+ 
+// ─── CANVAS PARTICLES ───
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+let W, H, particles = [];
+function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+resize(); window.addEventListener('resize', resize);
+ 
+class Particle {
+  constructor() { this.reset(); }
+  reset() {
+    this.x = Math.random() * W; this.y = Math.random() * H;
+    this.size = Math.random() * 1.5 + 0.3;
+    this.speedX = (Math.random() - 0.5) * 0.3;
+    this.speedY = (Math.random() - 0.5) * 0.3;
+    this.alpha = Math.random() * 0.4 + 0.05;
+    this.gold = Math.random() > 0.85;
+  }
+  update() {
+    this.x += this.speedX; this.y += this.speedY;
+    if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+  }
+  draw() {
+    ctx.save();
+    ctx.globalAlpha = this.alpha;
+    ctx.fillStyle = this.gold ? '#F5A623' : '#4a5580';
+    ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill(); ctx.restore();
+  }
+}
+ 
+for (let i = 0; i < 120; i++) particles.push(new Particle());
+ 
+function drawLines() {
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i + 1; j < particles.length; j++) {
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      if (d < 100) {
+        ctx.save();
+        ctx.globalAlpha = (1 - d/100) * 0.05;
+        ctx.strokeStyle = '#4a5580';
+        ctx.lineWidth = 0.5;
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
+        ctx.stroke(); ctx.restore();
+      }
+    }
+  }
+}
+ 
+function animateCanvas() {
+  ctx.clearRect(0, 0, W, H);
+  drawLines();
+  particles.forEach(p => { p.update(); p.draw(); });
+  requestAnimationFrame(animateCanvas);
+}
+animateCanvas();
+ 
+// ─── STICKY NAV ───
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+ 
+// ─── SCROLL REVEAL ───
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1 });
+reveals.forEach(el => io.observe(el));
+ 
+// ─── SKILL BARS ───
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+        bar.style.width = bar.dataset.width + '%';
+      });
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.skill-card').forEach(c => barObserver.observe(c));
+ 
+// ─── COUNTER ANIMATION ───
+function animateCounter(el) {
+  const isShort = el.dataset.short === 'true';
+  const prefix = el.dataset.prefix || '';
+  const suffix = el.dataset.suffix || '';
+  const target = +el.dataset.target;
+  const duration = 2000;
+  const start = performance.now();
+  function update(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const val = Math.floor(eased * target);
+    if (isShort) {
+      if (val >= 1000000) el.textContent = prefix + (val/1000000).toFixed(1) + 'M+';
+      else if (val >= 1000) el.textContent = prefix + Math.floor(val/1000) + 'K+';
+      else el.textContent = prefix + val;
+    } else {
+      el.textContent = prefix + val + suffix;
+    }
+    if (progress < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+ 
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.counter, [data-count]').forEach(el => {
+        if (el.classList.contains('counter')) animateCounter(el);
+        else animateHeroStat(el);
+      });
+      counterObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.about-numbers, .hero-stats').forEach(el => counterObserver.observe(el));
+ 
+function animateHeroStat(el) {
+  const target = +el.dataset.count;
+  const suffix = el.dataset.suffix || '';
+  const duration = 1800;
+  const start = performance.now();
+  function update(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const val = (eased * target).toFixed(target % 1 !== 0 ? 1 : 0);
+    el.textContent = val + suffix;
+    if (progress < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+ 
+// ─── LIGHTBOX ───
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+ 
+// ─── DOWNLOAD TOAST ───
+function handleDownload(e) {
+  e.preventDefault();
+  const a = document.createElement('a');
+  a.href = e.currentTarget.href;
+  a.download = 'Ashraf Al Ahad Resume.pdf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  const toast = document.getElementById('toast');
+  toast.style.transform = 'translateX(-50%) translateY(0)';
+  setTimeout(() => { toast.style.transform = 'translateX(-50%) translateY(80px)'; }, 3500);
+}
+ 
+// ─── SMOOTH SCROLL ───
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
 </body>
 </html>
-
